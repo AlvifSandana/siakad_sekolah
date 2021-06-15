@@ -14,13 +14,25 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('dasbor');
+});
+
+Route::get('/jadwalpelajaran', function () {
+    return view('jadwal');
+});
+
+Route::get('/guru', function () {
+    return view('guru');
+});
+
+Route::get('/siswa', function () {
+    return view('siswa');
+});
+
+Route::get('/kelas', function () {
+    return view('kelas');
 });
 
 Route::get('/login', function () {
     return view('login');
-});
-
-Route::get('/dasbor', function () {
-    return view('dasbor');
 });
