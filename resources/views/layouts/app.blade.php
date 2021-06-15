@@ -7,10 +7,12 @@
     <div class="main-panel">
       @include('layouts.navbar')
       <div class="content">
-        @yield('content')
+        <div class="container-fluid">
+          @yield('content')
+        </div>
       </div>
+      @include('layouts.footer')
     </div>
-    @include('layouts.footer')
   </div>
   @include('layouts.js')
 </body>
