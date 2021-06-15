@@ -16,17 +16,18 @@
                         ID
                       </th>
                       <th>
-                        Nama
+                        NIP
                       </th>
                       <th>
-                        Country
+                        Nama Lengkap
                       </th>
                       <th>
-                        City
+                        TTL
                       </th>
                       <th>
-                        Salary
+                        Jenis Kelamin
                       </th>
+                      <th>Agama</th>
                     </thead>
                     <tbody>
                       <tr>
