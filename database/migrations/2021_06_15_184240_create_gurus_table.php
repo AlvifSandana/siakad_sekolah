@@ -22,6 +22,8 @@ class CreateGurusTable extends Migration
             $table->text('alamat_guru');
             $table->string('jenis_kelamin_guru');
             $table->string('agama');
+            $table->string('no_hp_guru');
+            $table->string('email_guru');
             $table->string('role');
             $table->string('profile_img');
             $table->timestamps();

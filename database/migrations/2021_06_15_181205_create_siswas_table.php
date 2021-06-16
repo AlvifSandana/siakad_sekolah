@@ -36,6 +36,7 @@ class CreateSiswasTable extends Migration
             $table->string('no_hp_wali');
             $table->string('pekerjaan_wali');
             $table->foreignId('kelas_id')->constrained('kelas', 'id_kelas');
+            $table->foreignId('tahun_angkatan_id')->constrained('tahun_ajaran', 'id_tahun_ajaran');
             $table->string('profile_img');
             $table->timestamps();
         });
