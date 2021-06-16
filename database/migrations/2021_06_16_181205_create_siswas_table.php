@@ -20,6 +20,7 @@ class CreateSiswasTable extends Migration
             $table->string('nama_lengkap');
             $table->string('kota_lahir');
             $table->date('tanggal_lahir');
+            $table->string('agama_siswa');
             $table->string('jenis_kelamin');
             $table->string('status_dalam_keluarga');
             $table->integer('anak_ke');
