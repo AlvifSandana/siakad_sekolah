@@ -2,7 +2,7 @@
 
 @section('content')
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-12">
       <div class="card">
         <div class="card-header card-header-primary">
           <h4 class="card-title">Form Data Siswa</h4>
@@ -19,13 +19,13 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-md-7">
+              <div class="col-md-6">
                 <div class="form-group">
                   <label class="bmd-label-floating">NISN</label>
                   <input type="text" class="form-control">
                 </div>
               </div>
-              <div class="col-md-5">
+              <div class="col-md-6">
                 <div class="form-group">
                   <label class="bmd-label-floating">NIS</label>
                   <input type="text" class="form-control">
@@ -41,13 +41,13 @@
               </div>
               <div class="col-md-6">
                 <div class="form-group">
-                  <label class="bmd-label-floating">Tanggal Lahir</label>
-                  <input type="text" class="form-control">
+                  <label class="">Tanggal Lahir</label>
+                  <input type="date" class="form-control" id="tanggal_lahir">
                 </div>
               </div>
             </div>
             <div class="row">
-              <div class="col-md-4">
+              <div class="col-md-6">
                 <div class="form-group">
                   <label class="bmd-label-floating">Jenis Kelamin</label>
                   <select class="form-control">
@@ -57,7 +57,7 @@
                   </select>
                 </div>
               </div>
-              <div class="col-md-4">
+              <div class="col-md-6">
                 <div class="form-group">
                   <label class="bmd-label-floating">Agama</label>
                   <select class="form-control">
@@ -73,41 +73,96 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-md-12">
+              <div class="col-md-8">
                 <div class="form-group">
-                  <label class="bmd-label-floating">Adress</label>
+                  <label class="bmd-label-floating">Alamat Siswa</label>
+                  <input type="text" class="form-control">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="bmd-label-floating">Nomor HP Siswa</label>
                   <input type="text" class="form-control">
                 </div>
               </div>
             </div>
             <div class="row">
-              <div class="col-md-4">
+              <div class="col-md-6">
                 <div class="form-group">
-                  <label class="bmd-label-floating">City</label>
+                  <label class="bmd-label-floating">Nama Ayah</label>
                   <input type="text" class="form-control">
                 </div>
               </div>
-              <div class="col-md-4">
+              <div class="col-md-6">
                 <div class="form-group">
-                  <label class="bmd-label-floating">Country</label>
-                  <input type="text" class="form-control">
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="form-group">
-                  <label class="bmd-label-floating">Postal Code</label>
+                  <label class="bmd-label-floating">Nama Ibu</label>
                   <input type="text" class="form-control">
                 </div>
               </div>
             </div>
             <div class="row">
-              <div class="col-md-12">
+              <div class="col-md-6">
                 <div class="form-group">
-                  <label>About Me</label>
-                  <div class="form-group">
-                    <label class="bmd-label-floating"> Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</label>
-                    <textarea class="form-control" rows="5"></textarea>
-                  </div>
+                  <label class="bmd-label-floating">Pekerjaan Ayah</label>
+                  <input type="text" class="form-control">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="bmd-label-floating">Pekerjaan Ibu</label>
+                  <input type="text" class="form-control">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-8">
+                <div class="form-group">
+                  <label class="bmd-label-floating">Alamat Orang Tua</label>
+                  <input type="text" class="form-control">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="bmd-label-floating">Nomor Telp/HP Orang Tua</label>
+                  <input type="text" class="form-control">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="bmd-label-floating">Nama Wali</label>
+                  <input type="text" class="form-control">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="bmd-label-floating">Pekerjaan Wali</label>
+                  <input type="text" class="form-control">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-8">
+                <div class="form-group">
+                  <label class="bmd-label-floating">Alamat Wali</label>
+                  <input type="text" class="form-control">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="bmd-label-floating">Nomor Telp/HP Wali</label>
+                  <input type="text" class="form-control">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="bmd-label-floating">Kelas</label>
+                  <select class="form-control">
+                    <option selected>pilih...</option>
+                  </select>
                 </div>
               </div>
             </div>
