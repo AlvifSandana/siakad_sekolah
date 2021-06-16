@@ -25,6 +25,10 @@ Route::get('/guru', function () {
     return view('guru');
 });
 
+Route::get('/guru/tambah', function () {
+    return view('pages.addguru');
+});
+
 Route::get('/siswa', function () {
     return view('siswa');
 });

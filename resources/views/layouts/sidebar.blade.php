@@ -46,13 +46,13 @@
                 </a>
             </li>
             <li class="nav-item nav-treeview">
-                <a href="/guru#tambah" class="nav-link">
+                <a href="/guru/tambah" class="nav-link">
                     <i class="material-icons">add</i>
                     <p>Tambah Data</p>
                 </a>
             </li>
             <li class="nav-item nav-treeview">
-                <a href="/guru#edit" class="nav-link">
+                <a href="/guru/edit" class="nav-link">
                     <i class="material-icons">edit</i>
                     <p>Ubah Data</p>
                 </a>
@@ -94,7 +94,7 @@
                 </a>
             </li>
             <li class="nav-item nav-treeview">
-                <a href="/kelas#edit" class="nav-link">
+                <a href="/kelas/edit" class="nav-link">
                     <i class="material-icons">edit</i>
                     <p>Ubah Data</p>
                 </a>
