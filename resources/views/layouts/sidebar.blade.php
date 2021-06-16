@@ -67,7 +67,7 @@
                 </a>
             </li>
             <li class="nav-item nav-treeview">
-                <a href="/siswa#tambah" class="nav-link">
+                <a href="/siswa/tambah" class="nav-link">
                     <i class="material-icons">add</i>
                     <p>Tambah Data</p>
                 </a>
@@ -88,7 +88,7 @@
                 </a>
             </li>
             <li class="nav-item nav-treeview">
-                <a href="/kelas#tambah" class="nav-link">
+                <a href="/kelas/tambah" class="nav-link">
                     <i class="material-icons">add</i>
                     <p>Tambah Data</p>
                 </a>
@@ -109,7 +109,7 @@
                 </a>
             </li>
             <li class="nav-item nav-treeview">
-                <a href="/mapel#tambah" class="nav-link">
+                <a href="/mapel/tambah" class="nav-link">
                     <i class="material-icons">add</i>
                     <p>Tambah Data</p>
                 </a>

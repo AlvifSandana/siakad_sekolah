@@ -29,6 +29,10 @@ Route::get('/siswa', function () {
     return view('siswa');
 });
 
+Route::get('/siswa/tambah', function () {
+    return view('pages.addsiswa');
+});
+
 Route::get('/kelas', function () {
     return view('kelas');
 });
