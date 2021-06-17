@@ -15,8 +15,8 @@ class CreateJamMapelsTable extends Migration
     {
         Schema::create('jam_mapel', function (Blueprint $table) {
             $table->id('id_jam_mapel');
-            $table->datetime('jam_mulai');
-            $table->datetime('jam_akhir');
+            $table->time('jam_mulai');
+            $table->time('jam_akhir');
             $table->timestamps();
         });
     }
