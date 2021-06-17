@@ -30,42 +30,23 @@
                       <th>Agama</th>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>
-                          1
-                        </td>
-                        <td>
-                          Dakota Rice
-                        </td>
-                        <td>
-                          Niger
-                        </td>
-                        <td>
-                          Oud-Turnhout
-                        </td>
-                        <td class="text-primary">
-                          $36,738
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          2
-                        </td>
-                        <td>
-                          Minerva Hooper
-                        </td>
-                        <td>
-                          Curaçao
-                        </td>
-                        <td>
-                          Sinaai-Waas
-                        </td>
-                        <td class="text-primary">
-                          $23,789
-                        </td>
-                      </tr>
+                     @foreach ($data_guru as $guru)
+                        <tr>
+                            <td>{{ $guru->id_guru }}</td>
+                            <td>{{ $guru->nip }}</td>
+                            <td>{{ $guru->nama_lengkap_guru }}</td>
+                            <td>{{ $guru->kota_lahir_guru }}, {{ $guru->tanggal_lahir_guru }}</td>
+                            @if ($guru->jenis_kelamin_guru == 'p')
+                            <td>Wanita</td>
+                            @else
+                            <td>Pria</td>
+                            @endif
+                            <td>{{ $guru->agama }}</td>
+                        </tr>
+                     @endforeach
                     </tbody>
                   </table>
+                  {{ $data_guru->links() }}
                 </div>
               </div>
             </div>
