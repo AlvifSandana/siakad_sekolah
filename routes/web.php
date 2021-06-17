@@ -15,31 +15,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'DashboardController@index');
+Route::resources([
+    'dashboard' => 'DashboardController',
+    'guru' => 'GuruController'
+]);
 
-
-Route::get('/jadwalpelajaran', function () {
-    return view('jadwal');
-});
-
-Route::get('/guru', function () {
-    return view('guru');
-});
-
-Route::get('/guru/tambah', function () {
-    return view('pages.addguru');
-});
-
-Route::get('/siswa', function () {
-    return view('siswa');
-});
-
-Route::get('/siswa/tambah', function () {
-    return view('pages.addsiswa');
-});
-
-Route::get('/kelas', function () {
-    return view('kelas');
-});
 
 Route::get('/login', function () {
     return view('login');
