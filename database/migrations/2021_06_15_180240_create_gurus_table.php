@@ -15,17 +15,17 @@ class CreateGurusTable extends Migration
     {
         Schema::create('guru', function (Blueprint $table) {
             $table->id('id_guru');
-            $table->string('nip');
+            $table->string('nip')->nullable();
             $table->string('nama_lengkap_guru');
             $table->string('kota_lahir_guru');
             $table->date('tanggal_lahir_guru');
             $table->text('alamat_guru');
             $table->string('jenis_kelamin_guru');
             $table->string('agama');
-            $table->string('no_hp_guru');
-            $table->string('email_guru');
+            $table->string('no_hp_guru')->nullable();
+            $table->string('email_guru')->nullable();
             $table->string('role');
-            $table->string('profile_img');
+            $table->string('profile_img')->nullable();
             $table->timestamps();
         });
     }

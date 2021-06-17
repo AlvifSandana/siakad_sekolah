@@ -25,20 +25,20 @@ class CreateSiswasTable extends Migration
             $table->string('status_dalam_keluarga');
             $table->integer('anak_ke');
             $table->text('alamat_siswa');
-            $table->string('no_hp_siswa');
+            $table->string('no_hp_siswa')->nullable();
             $table->string('nama_ayah');
             $table->string('nama_ibu');
             $table->text('alamat_ortu');
-            $table->string('no_hp_ortu');
+            $table->string('no_hp_ortu')->nullable();
             $table->string('pekerjaan_ayah');
             $table->string('pekerjaan_ibu');
-            $table->string('nama_wali');
-            $table->text('alamat_wali');
-            $table->string('no_hp_wali');
-            $table->string('pekerjaan_wali');
+            $table->string('nama_wali')->nullable();
+            $table->text('alamat_wali')->nullable();
+            $table->string('no_hp_wali')->nullable();
+            $table->string('pekerjaan_wali')->nullable();
             $table->foreignId('kelas_id')->constrained('kelas', 'id_kelas');
             $table->foreignId('tahun_angkatan_id')->constrained('tahun_ajaran', 'id_tahun_ajaran');
-            $table->string('profile_img');
+            $table->string('profile_img')->nullable();
             $table->timestamps();
         });
     }
