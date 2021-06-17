@@ -10,8 +10,8 @@
     <div class="sidebar-wrapper">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
             <!-- Dashboard -->
-            <li class="nav-item active  ">
-                <a class="nav-link" href="/">
+            <li class="nav-item {{ Request::is('dashboard') ? 'active' : '' }}">
+                <a class="nav-link" href="/dashboard">
                     <i class="material-icons">dashboard</i>
                     <p>Dashboard</p>
                 </a>
@@ -19,7 +19,7 @@
             <!-- End of Dashboard -->
             <hr/>
             <!-- Jadwal Pelajaran -->
-            <li class="nav-item">
+            <li class="nav-item {{ Request::is('jadwalpelajaran') ? 'active' : '' }}">
                 <a href="/jadwalpelajaran" class="nav-link">
                     <i class="material-icons">date_range</i>
                     <p>Jadwal Pelajaran</p>
@@ -39,7 +39,7 @@
             <!-- End of Jadwal Pelajaran -->
             <hr/>
             <!-- Data Guru -->
-            <li class="nav-item">
+            <li class="nav-item {{ Request::is('guru') ? 'active' : '' }}">
                 <a href="/guru" class="nav-link">
                     <i class="material-icons">work</i>
                     <p>Data Guru</p>
@@ -60,7 +60,7 @@
             <!-- End of Data Guru -->
             <hr/>
             <!-- Data Siswa -->
-            <li class="nav-item">
+            <li class="nav-item {{ Request::is('siswa') ? 'active' : '' }}">
                 <a href="/siswa" class="nav-link">
                     <i class="material-icons">people</i>
                     <p>Data Siswa</p>
@@ -81,7 +81,7 @@
             <!-- End of Data Siswa -->
             <hr/>
             <!-- Data Kelas -->
-            <li class="nav-item">
+            <li class="nav-item {{ Request::is('kelas') ? 'active' : '' }}">
                 <a href="/kelas" class="nav-link">
                     <i class="material-icons">groups</i>
                     <p>Data Kelas</p>
@@ -102,7 +102,7 @@
             <!-- End of Data Kelas -->
             <hr/>
             <!-- Data Mapel -->
-            <li class="nav-item">
+            <li class="nav-item {{ Request::is('mapel') ? 'active' : '' }}">
                 <a href="/mapel" class="nav-link">
                     <i class="material-icons">book</i>
                     <p>Data Mapel</p>

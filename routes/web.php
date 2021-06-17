@@ -17,7 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'DashboardController@index');
 Route::resources([
     'dashboard' => 'DashboardController',
-    'guru' => 'GuruController'
+    'guru' => 'GuruController',
+    'siswa'=> 'SiswaController'
 ]);
 
 
