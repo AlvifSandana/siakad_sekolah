@@ -19,7 +19,8 @@ Route::resources([
     'dashboard' => 'DashboardController',
     'guru' => 'GuruController',
     'siswa'=> 'SiswaController',
-    'kelas' => 'KelasController'
+    'kelas' => 'KelasController',
+    'mapel' => 'MapelController'
 ]);
 
 
