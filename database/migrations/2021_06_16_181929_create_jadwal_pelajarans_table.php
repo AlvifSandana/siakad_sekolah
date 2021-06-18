@@ -17,6 +17,7 @@ class CreateJadwalPelajaransTable extends Migration
             $table->id('id_jadwal');
             $table->foreignId('mapel_id')->constrained('mapel', 'id_mapel');
             $table->foreignId('guru_id')->constrained('guru', 'id_guru');
+            $table->foreignId('hari_id')->constrained('hari', 'id_hari');
             $table->foreignId('jam_mapel_id')->constrained('jam_mapel', 'id_jam_mapel');
             $table->foreignId('kelas_id')->constrained('kelas', 'id_kelas');
             $table->foreignId('semester_id')->constrained('semester', 'id_semester');

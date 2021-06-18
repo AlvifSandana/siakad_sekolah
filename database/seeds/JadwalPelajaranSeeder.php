@@ -20,6 +20,7 @@ class JadwalPelajaranSeeder extends Seeder
         DB::table('jadwal_pelajaran')->insert([
             'mapel_id' => 1,
             'guru_id' => 1,
+            'hari_id' => 1,
             'jam_mapel_id' => 1,
             'kelas_id' => 1,
             'semester_id' => 1,

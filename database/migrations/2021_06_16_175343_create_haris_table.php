@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMapelsTable extends Migration
+class CreateHarisTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateMapelsTable extends Migration
      */
     public function up()
     {
-        Schema::create('mapel', function (Blueprint $table) {
-            $table->id('id_mapel');
-            $table->string('nama_mapel');
+        Schema::create('hari', function (Blueprint $table) {
+            $table->id('id_hari');
+            $table->string('nama_hari');
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class CreateMapelsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mapel');
+        Schema::dropIfExists('hari');
     }
 }

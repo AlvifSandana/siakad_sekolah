@@ -14,7 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'DashboardController@index');
+Route::resource('dashboard', 'DashboardController',
+    ['only' => ['dashboard.index']
+]);
+
 Route::resources([
     'dashboard' => 'DashboardController',
     'guru' => 'GuruController',
@@ -22,7 +25,6 @@ Route::resources([
     'kelas' => 'KelasController',
     'mapel' => 'MapelController'
 ]);
-
 
 Route::get('/login', function () {
     return view('login');
