@@ -8,4 +8,6 @@ class WaliKelas extends Model
 {
     // Model Wali Kelas
     protected $table = 'wali_kelas';
+    protected $primaryKey = 'id_wali_kelas';
+    public $timestamps = true;
 }

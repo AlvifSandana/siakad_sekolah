@@ -8,4 +8,6 @@ class JamMapel extends Model
 {
     // Model Jam Mapel
     protected $table = 'jam_mapel';
+    protected $primaryKey = 'id_jam_mapel';
+    public $timestamps = true;
 }
