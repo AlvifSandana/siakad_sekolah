@@ -10,4 +10,10 @@ class JadwalPelajaran extends Model
     protected $table = 'jadwal_pelajaran';
     protected $primaryKey = 'id_jadwal_pelajaran';
     public $timestamps = true;
+
+    // total count function
+    public function totalCount()
+    {
+        return JadwalPelajaran::count();
+    }
 }
