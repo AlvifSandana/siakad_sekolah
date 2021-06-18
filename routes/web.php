@@ -18,7 +18,8 @@ Route::get('/', 'DashboardController@index');
 Route::resources([
     'dashboard' => 'DashboardController',
     'guru' => 'GuruController',
-    'siswa'=> 'SiswaController'
+    'siswa'=> 'SiswaController',
+    'kelas' => 'KelasController'
 ]);
 
 
