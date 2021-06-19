@@ -34,6 +34,7 @@
                                 <th>No. Telp Wali</th>
                                 <th>Pekerjaan Wali</th>
                                 <th>Kelas</th>
+                                <th>Angkatan</th>
                             </thead>
                             <tbody>
                                 @foreach ($data_siswa as $siswa)
@@ -59,7 +60,8 @@
                                         <td>{{ $siswa->alamat_wali }}</td>
                                         <td>{{ $siswa->no_hp_wali }}</td>
                                         <td>{{ $siswa->pekerjaan_wali }}</td>
-                                        <td></td>
+                                        <td>{{ $siswa->kelas }}</td>
+                                        <td>{{ $siswa->angkatan }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
