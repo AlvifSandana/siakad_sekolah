@@ -11,7 +11,7 @@
               <div class="card-body">
                 <div class="table-responsive">
                   <table class="table">
-                    <thead class=" text-primary">
+                    <thead class="text-center text-primary">
                       <th>
                         ID
                       </th>
@@ -28,6 +28,7 @@
                         Jenis Kelamin
                       </th>
                       <th>Agama</th>
+                      <th>Action</th>
                     </thead>
                     <tbody>
                      @foreach ($data_guru as $guru)
@@ -37,11 +38,17 @@
                             <td>{{ $guru->nama_lengkap_guru }}</td>
                             <td>{{ $guru->kota_lahir_guru }}, {{ $guru->tanggal_lahir_guru }}</td>
                             @if ($guru->jenis_kelamin_guru == 'p')
-                            <td>Wanita</td>
+                            <td class="text-center">Wanita</td>
                             @else
-                            <td>Pria</td>
+                            <td class="text-center">Pria</td>
                             @endif
-                            <td>{{ $guru->agama }}</td>
+                            <td class="text-center">{{ $guru->agama }}</td>
+                            <td class="text-center">
+                                <form action="{{ route('guru.destroy', $guru->id_guru)}}" method="POST">
+                                    <a href="{{ route('guru.edit', $guru->id_guru) }}" class="btn btn-sm btn-warning">Edit</a>
+                                    <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
+                                </form>
+                            </td>
                         </tr>
                      @endforeach
                     </tbody>

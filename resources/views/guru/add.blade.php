@@ -1,7 +1,19 @@
 @extends('layouts.app')
 
+
+
 @section('content')
   <div class="row">
+    @if (count($errors) > 0)
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <div class="message mt-2">
+            <strong>Error -</strong> {{ $errors }}
+        </div>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    @endif
     <div class="col-md-12">
       <div class="card">
         <div class="card-header card-header-primary">
@@ -9,18 +21,19 @@
           <p class="card-category">Isi dengan lengkap</p>
         </div>
         <div class="card-body">
-          <form>
+          <form action="{{ route('guru.store') }}" method="POST">
+            @csrf
             <div class="row">
               <div class="col-md-8">
                 <div class="form-group">
                   <label class="bmd-label-floating">Nama Lengkap Guru</label>
-                  <input type="text" class="form-control">
+                  <input type="text" class="form-control" name="nama_lengkap_guru">
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="form-group">
                   <label class="bmd-label-floating">NIP</label>
-                  <input type="text" class="form-control">
+                  <input type="text" class="form-control" name="nip">
                 </div>
               </div>
             </div>
@@ -28,13 +41,13 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label class="bmd-label-floating">Tempat Lahir</label>
-                  <input type="text" class="form-control">
+                  <input type="text" class="form-control" name="kota_lahir_guru">
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
                   <label class="">Tanggal Lahir</label>
-                  <input type="date" class="form-control" id="tanggal_lahir">
+                  <input type="date" class="form-control" name="tanggal_lahir_guru" id="tanggal_lahir">
                 </div>
               </div>
             </div>
@@ -42,17 +55,17 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label class="bmd-label-floating">Jenis Kelamin</label>
-                  <select class="form-control">
+                  <select class="form-control" name="jenis_kelamin_guru">
                     <option selected>pilih...</option>
-                    <option value="L">Laki-laki</option>
-                    <option value="P">Perempuan</option>
+                    <option value="l">Laki-laki</option>
+                    <option value="p">Perempuan</option>
                   </select>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
                   <label class="bmd-label-floating">Agama</label>
-                  <select class="form-control">
+                  <select class="form-control" name="agama">
                     <option selected>pilih...</option>
                     <option value="islam">Islam</option>
                     <option value="kristen">Kristen</option>
@@ -65,18 +78,26 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-md-8">
+              <div class="col-md-12">
                 <div class="form-group">
                   <label class="bmd-label-floating">Alamat Guru</label>
-                  <input type="text" class="form-control">
+                  <textarea class="form-control" name="alamat_guru" cols="30" rows="5"></textarea>
                 </div>
               </div>
-              <div class="col-md-4">
-                <div class="form-group">
-                  <label class="bmd-label-floating">Nomor HP Guru</label>
-                  <input type="text" class="form-control">
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="bmd-label-floating">Nomor HP</label>
+                        <input class="form-control" type="tel" name="no_hp_guru">
+                    </div>
                 </div>
-              </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="bmd-label-floating">Email Guru</label>
+                        <input class="form-control" type="email" name="email_guru">
+                    </div>
+                </div>
             </div>
             <button type="submit" class="btn btn-primary pull-right">Tambah Data</button>
             <div class="clearfix"></div>

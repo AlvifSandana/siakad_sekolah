@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Guru;
+use Illuminate\Support\Facades\Validator;
 
 class GuruController extends Controller
 {
@@ -25,7 +26,7 @@ class GuruController extends Controller
      */
     public function create()
     {
-        //
+        return view('guru.add');
     }
 
     /**
@@ -36,7 +37,41 @@ class GuruController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $validator = Validator::make($request->all(), [
+                'nama_lengkap_guru' => 'required',
+                'nip' => 'required',
+                'kota_lahir_guru' => 'required',
+                'tanggal_lahir_guru' => 'required',
+                'jenis_kelamin_guru' => 'required',
+                'agama' => 'required',
+                'alamat_guru' => 'required',
+                'no_hp_guru' => 'required',
+                'email_guru' => 'required'
+            ]);
+
+            if ($validator->fails()) {
+                return back()->withErrors($validator)->withInput();
+            }else{
+                $data_input = [
+                    'nama_lengkap_guru' => $request->input('nama_lengkap_guru'),
+                    'nip' => $request->input('nip'),
+                    'kota_lahir_guru' => $request->input('kota_lahir_guru'),
+                    'tanggal_lahir_guru' => $request->input('tanggal_lahir_guru'),
+                    'alamat_guru' => $request->input('alamat_guru'),
+                    'jenis_kelamin_guru' => $request->input('jenis_kelamin_guru'),
+                    'agama' => $request->input('agama'),
+                    'no_hp_guru' => $request->input('no_hp_guru'),
+                    'email_guru' => $request->input('email_guru'),
+                    'role' => 'guru',
+                    'profile_img' => 'img_guru.jpg',
+                ];
+                Guru::create($data_input);
+                return redirect()->route('guru.index')->with('success', 'Data berhasil ditambahkan.');
+            }
+        } catch (\Throwable $th) {
+            return redirect()->route('dashboard.index')->with('fail_msg', $th->getMessage());
+        }
     }
 
     /**
