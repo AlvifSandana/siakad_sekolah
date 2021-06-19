@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Guru;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class GuruController extends Controller
@@ -93,7 +94,8 @@ class GuruController extends Controller
      */
     public function edit($id)
     {
-        //
+        $guru = Guru::where('id_guru', $id)->get();
+        return view('guru.edit', compact('guru'));
     }
 
     /**
@@ -105,7 +107,41 @@ class GuruController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try {
+            $validator = Validator::make($request->all(), [
+                'nama_lengkap_guru' => 'required',
+                'nip' => 'required',
+                'kota_lahir_guru' => 'required',
+                'tanggal_lahir_guru' => 'required',
+                'jenis_kelamin_guru' => 'required',
+                'agama' => 'required',
+                'alamat_guru' => 'required',
+                'no_hp_guru' => 'required',
+                'email_guru' => 'required'
+            ]);
+
+            if ($validator->fails()) {
+                return back()->withErrors($validator)->withInput();
+            }else{
+                $data_update = [
+                    'nama_lengkap_guru' => $request->input('nama_lengkap_guru'),
+                    'nip' => $request->input('nip'),
+                    'kota_lahir_guru' => $request->input('kota_lahir_guru'),
+                    'tanggal_lahir_guru' => $request->input('tanggal_lahir_guru'),
+                    'alamat_guru' => $request->input('alamat_guru'),
+                    'jenis_kelamin_guru' => $request->input('jenis_kelamin_guru'),
+                    'agama' => $request->input('agama'),
+                    'no_hp_guru' => $request->input('no_hp_guru'),
+                    'email_guru' => $request->input('email_guru'),
+                    'role' => 'guru',
+                    'profile_img' => 'img_guru.jpg',
+                ];
+                Guru::where('id_guru', '=', $id)->update($data_update);
+                return redirect()->route('guru.index')->with('success', 'Data berhasil ditambahkan.');
+            }
+        } catch (\Throwable $th) {
+            return redirect()->route('dashboard.index')->with('fail_msg', $th->getMessage());
+        }
     }
 
     /**
@@ -116,6 +152,7 @@ class GuruController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Guru::where('id_guru', '=', $id)->delete();
+        return redirect()->route('guru.index')->with('success', 'Data berhasil dihapus.');
     }
 }

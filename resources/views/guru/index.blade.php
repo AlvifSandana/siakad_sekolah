@@ -44,8 +44,10 @@
                             @endif
                             <td class="text-center">{{ $guru->agama }}</td>
                             <td class="text-center">
-                                <form action="{{ route('guru.destroy', $guru->id_guru)}}" method="POST">
+                                <form action="{{ route('guru.destroy', $guru->id_guru) }}" method="POST">
                                     <a href="{{ route('guru.edit', $guru->id_guru) }}" class="btn btn-sm btn-warning">Edit</a>
+                                    @csrf
+                                    @method('DELETE')
                                     <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
                                 </form>
                             </td>
