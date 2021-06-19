@@ -11,7 +11,7 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
             <!-- Dashboard -->
             <li class="nav-item {{ Request::is('dashboard') ? 'active' : '' }}">
-                <a class="nav-link" href="/dashboard">
+                <a class="nav-link" href="{{ route('dashboard.index') }}">
                     <i class="material-icons">dashboard</i>
                     <p>Dashboard</p>
                 </a>
@@ -40,13 +40,13 @@
             <hr/>
             <!-- Data Guru -->
             <li class="nav-item {{ Request::is('guru') ? 'active' : '' }}">
-                <a href="/guru" class="nav-link">
+                <a href="{{ route('guru.index') }}" class="nav-link">
                     <i class="material-icons">work</i>
                     <p>Data Guru</p>
                 </a>
             </li>
-            <li class="nav-item nav-treeview">
-                <a href="/guru/tambah" class="nav-link">
+            <li class="nav-item nav-treeview {{ Request::is('guru/create') ? 'active' : '' }}">
+                <a href="{{ route('guru.create') }}" class="nav-link">
                     <i class="material-icons">add</i>
                     <p>Tambah Data</p>
                 </a>
@@ -61,13 +61,13 @@
             <hr/>
             <!-- Data Siswa -->
             <li class="nav-item {{ Request::is('siswa') ? 'active' : '' }}">
-                <a href="/siswa" class="nav-link">
+                <a href="{{ route('siswa.index') }}" class="nav-link">
                     <i class="material-icons">people</i>
                     <p>Data Siswa</p>
                 </a>
             </li>
-            <li class="nav-item nav-treeview">
-                <a href="/siswa/tambah" class="nav-link">
+            <li class="nav-item nav-treeview {{ Request::is('siswa/create') ? 'active' : '' }}">
+                <a href="{{ route('siswa.create') }}" class="nav-link">
                     <i class="material-icons">add</i>
                     <p>Tambah Data</p>
                 </a>
@@ -82,13 +82,13 @@
             <hr/>
             <!-- Data Kelas -->
             <li class="nav-item {{ Request::is('kelas') ? 'active' : '' }}">
-                <a href="/kelas" class="nav-link">
+                <a href="{{ route('kelas.index') }}" class="nav-link">
                     <i class="material-icons">groups</i>
                     <p>Data Kelas</p>
                 </a>
             </li>
-            <li class="nav-item nav-treeview">
-                <a href="/kelas/tambah" class="nav-link">
+            <li class="nav-item nav-treeview {{ Request::is('kelas/create') ? 'active' : '' }}">
+                <a href="{{ route('kelas.create') }}" class="nav-link">
                     <i class="material-icons">add</i>
                     <p>Tambah Data</p>
                 </a>
@@ -103,19 +103,19 @@
             <hr/>
             <!-- Data Mapel -->
             <li class="nav-item {{ Request::is('mapel') ? 'active' : '' }}">
-                <a href="/mapel" class="nav-link">
+                <a href="{{ route('mapel.index') }}" class="nav-link">
                     <i class="material-icons">book</i>
                     <p>Data Mapel</p>
                 </a>
             </li>
-            <li class="nav-item nav-treeview">
-                <a href="/mapel/tambah" class="nav-link">
+            <li class="nav-item nav-treeview {{ Request::is('mapel/create') ? 'active' : '' }}">
+                <a href="{{ route('mapel.create') }}" class="nav-link">
                     <i class="material-icons">add</i>
                     <p>Tambah Data</p>
                 </a>
             </li>
             <li class="nav-item nav-treeview">
-                <a href="/mapel#edit" class="nav-link">
+                <a href="/mapel/edit" class="nav-link">
                     <i class="material-icons">edit</i>
                     <p>Ubah Data</p>
                 </a>
