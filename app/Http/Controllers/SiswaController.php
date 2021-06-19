@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
 use App\Siswa;
 
 class SiswaController extends Controller
@@ -34,7 +36,9 @@ class SiswaController extends Controller
      */
     public function create()
     {
-        return view('siswa.add');
+        $tahun_ajaran = DB::table('tahun_ajaran')->get();
+        $kelas = DB::table('kelas')->get();
+        return view('siswa.add', compact('tahun_ajaran', 'kelas'));
     }
 
     /**
@@ -45,7 +49,63 @@ class SiswaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $validator = Validator::make($request->all(), [
+                'nisn' => 'required',
+                'nis'=> 'required',
+                'nama_lengkap_siswa'=> 'required',
+                'kota_lahir'=> 'required',
+                'tanggal_lahir' => 'required',
+                'agama' => 'required',
+                'jenis_kelamin' => 'required',
+                'alamat_siswa' => 'required',
+                'no_hp_siswa' => 'required',
+                'nama_ayah' => 'required',
+                'nama_ibu' => 'required',
+                'alamat_ortu' => 'required',
+                'no_hp_ortu' => 'required',
+                'pekerjaan_ayah' => 'required',
+                'pekerjaan_ibu' => 'required',
+                'pekerjaan_wali' => 'required',
+                'kelas_id' => 'required',
+                'tahun_angkatan_id' => 'required',
+            ]);
+
+            if($validator->fails()){
+                return redirect()->route('siswa.create')->withErrors($validator);
+            }
+
+            $siswa_input = [
+                'nisn' => $request->input('nisn'),
+                'nis'=> $request->input('nis'),
+                'nama_lengkap'=> $request->input('nama_lengkap_siswa'),
+                'kota_lahir'=> $request->input('kota_lahir'),
+                'tanggal_lahir' => $request->input('tanggal_lahir'),
+                'agama_siswa' => $request->input('agama'),
+                'jenis_kelamin' => $request->input('jenis_kelamin'),
+                'status_dalam_keluarga' => 'anak',
+                'anak_ke' => 1,
+                'alamat_siswa' => $request->input('alamat_siswa'),
+                'no_hp_siswa' => $request->input('no_hp_siswa'),
+                'nama_ayah' => $request->input('nama_ayah'),
+                'nama_ibu' => $request->input('nama_ibu'),
+                'alamat_ortu' => $request->input('alamat_ortu'),
+                'no_hp_ortu' => $request->input('no_hp_ortu'),
+                'pekerjaan_ayah' => $request->input('pekerjaan_ayah'),
+                'pekerjaan_ibu' => $request->input('pekerjaan_ibu'),
+                'nama_wali' => $request->input('nama_wali'),
+                'alamat_wali' => $request->input('alamat_wali'),
+                'no_hp_wali' => $request->input('no_hp_wali'),
+                'pekerjaan_wali' => $request->input('pekerjaan_wali'),
+                'kelas_id' => $request->input('kelas_id'),
+                'tahun_angkatan_id' => $request->input('tahun_angkatan_id'),
+            ];
+
+            Siswa::create($siswa_input);
+            return redirect()->route('siswa.index')->with('success', 'Data berhasil ditambahkan.');
+        } catch (\Throwable $th) {
+            return redirect()->route('siswa.create')->withErrors($th->getMessage());
+        }
     }
 
     /**

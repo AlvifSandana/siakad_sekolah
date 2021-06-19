@@ -2,6 +2,16 @@
 
 @section('content')
   <div class="row">
+    @if (count($errors) > 0)
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <div class="message mt-2">
+            <strong>Error -</strong> {{ $errors }}
+        </div>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    @endif
     <div class="col-md-12">
       <div class="card">
         <div class="card-header card-header-primary">
@@ -9,12 +19,14 @@
           <p class="card-category">Isi dengan lengkap</p>
         </div>
         <div class="card-body">
-          <form>
+          <form action="{{ route('siswa.store') }}" method="POST">
+            @csrf
+            @method('POST')
             <div class="row">
               <div class="col-md-12">
                 <div class="form-group">
                   <label class="bmd-label-floating">Nama Lengkap Siswa</label>
-                  <input type="text" class="form-control">
+                  <input type="text" name="nama_lengkap_siswa" class="form-control">
                 </div>
               </div>
             </div>
@@ -22,13 +34,13 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label class="bmd-label-floating">NISN</label>
-                  <input type="text" class="form-control">
+                  <input type="text" name="nisn" class="form-control">
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
                   <label class="bmd-label-floating">NIS</label>
-                  <input type="text" class="form-control">
+                  <input type="text" name="nis" class="form-control">
                 </div>
               </div>
             </div>
@@ -36,13 +48,13 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label class="bmd-label-floating">Tempat Lahir</label>
-                  <input type="text" class="form-control">
+                  <input type="text" name="kota_lahir" class="form-control">
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
                   <label class="">Tanggal Lahir</label>
-                  <input type="date" class="form-control" id="tanggal_lahir">
+                  <input type="date" class="form-control" name="tanggal_lahir" id="tanggal_lahir">
                 </div>
               </div>
             </div>
@@ -50,17 +62,17 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label class="bmd-label-floating">Jenis Kelamin</label>
-                  <select class="form-control">
+                  <select class="form-control" name="jenis_kelamin">
                     <option selected>pilih...</option>
-                    <option value="L">Laki-laki</option>
-                    <option value="P">Perempuan</option>
+                    <option value="l">Laki-laki</option>
+                    <option value="p">Perempuan</option>
                   </select>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
                   <label class="bmd-label-floating">Agama</label>
-                  <select class="form-control">
+                  <select class="form-control" name="agama">
                     <option selected>pilih...</option>
                     <option value="islam">Islam</option>
                     <option value="kristen">Kristen</option>
@@ -76,13 +88,13 @@
               <div class="col-md-8">
                 <div class="form-group">
                   <label class="bmd-label-floating">Alamat Siswa</label>
-                  <input type="text" class="form-control">
+                  <input type="text" class="form-control" name="alamat_siswa">
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="form-group">
                   <label class="bmd-label-floating">Nomor HP Siswa</label>
-                  <input type="text" class="form-control">
+                  <input type="text" class="form-control" name="no_hp_siswa">
                 </div>
               </div>
             </div>
@@ -90,13 +102,13 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label class="bmd-label-floating">Nama Ayah</label>
-                  <input type="text" class="form-control">
+                  <input type="text" class="form-control" name="nama_ayah">
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
                   <label class="bmd-label-floating">Nama Ibu</label>
-                  <input type="text" class="form-control">
+                  <input type="text" class="form-control" name="nama_ibu">
                 </div>
               </div>
             </div>
@@ -104,13 +116,13 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label class="bmd-label-floating">Pekerjaan Ayah</label>
-                  <input type="text" class="form-control">
+                  <input type="text" class="form-control" name="pekerjaan_ayah">
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
                   <label class="bmd-label-floating">Pekerjaan Ibu</label>
-                  <input type="text" class="form-control">
+                  <input type="text" class="form-control" name="pekerjaan_ibu">
                 </div>
               </div>
             </div>
@@ -118,13 +130,13 @@
               <div class="col-md-8">
                 <div class="form-group">
                   <label class="bmd-label-floating">Alamat Orang Tua</label>
-                  <input type="text" class="form-control">
+                  <input type="text" class="form-control" name="alamat_ortu">
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="form-group">
                   <label class="bmd-label-floating">Nomor Telp/HP Orang Tua</label>
-                  <input type="text" class="form-control">
+                  <input type="text" class="form-control" name="no_hp_ortu">
                 </div>
               </div>
             </div>
@@ -132,13 +144,13 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label class="bmd-label-floating">Nama Wali</label>
-                  <input type="text" class="form-control">
+                  <input type="text" class="form-control" name="nama_wali">
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
                   <label class="bmd-label-floating">Pekerjaan Wali</label>
-                  <input type="text" class="form-control">
+                  <input type="text" class="form-control" name="pekerjaan_wali">
                 </div>
               </div>
             </div>
@@ -146,13 +158,13 @@
               <div class="col-md-8">
                 <div class="form-group">
                   <label class="bmd-label-floating">Alamat Wali</label>
-                  <input type="text" class="form-control">
+                  <input type="text" class="form-control" name="alamat_wali">
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="form-group">
                   <label class="bmd-label-floating">Nomor Telp/HP Wali</label>
-                  <input type="text" class="form-control">
+                  <input type="text" class="form-control" name="no_hp_wali">
                 </div>
               </div>
             </div>
@@ -160,13 +172,27 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label class="bmd-label-floating">Kelas</label>
-                  <select class="form-control">
+                  <select class="form-control" name="kelas_id">
                     <option selected>pilih...</option>
+                    @foreach ($kelas as $k)
+                    <option value="{{ $k->id_kelas }}">{{ $k->nama_kelas }}</option>
+                    @endforeach
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="bmd-label-floating">Tahun Angkatan</label>
+                  <select class="form-control" name="tahun_angkatan_id">
+                    <option selected>pilih...</option>
+                    @foreach ($tahun_ajaran as $ta)
+                    <option value="{{ $ta->id_tahun_ajaran }}">{{ $ta->nama_tahun_ajaran }}</option>
+                    @endforeach
                   </select>
                 </div>
               </div>
             </div>
-            <button type="submit" class="btn btn-primary pull-right">Update Profile</button>
+            <button type="submit" class="btn btn-primary pull-right">Tambah Data</button>
             <div class="clearfix"></div>
           </form>
         </div>
