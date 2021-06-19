@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use App\Mapel;
+use Illuminate\Support\Facades\Validator;
 
 class MapelController extends Controller
 {
@@ -16,15 +17,11 @@ class MapelController extends Controller
     {
         // show data of mapel
         try {
-            $data_mapel = DB::table('mapel')
-                            ->join('jam_mapel', 'jam_mapel_id', '=', 'jam_mapel.id_jam_mapel')
-                            ->select('id_mapel','nama_mapel', 'jam_mapel.jam_mulai as jam_mulai', 'jam_mapel.jam_akhir as jam_akhir')
-                            ->orderBy('id_mapel')
-                            ->paginate(10);
-            return view('mapel.index', compact('data_mapel'))->with('success', 'Data Available');
+            $mapel = Mapel::paginate(10);
+            return view('mapel.index', compact('mapel'));
         } catch (\Throwable $th) {
             //throw $th;
-            return view('mapel.index')->with('error', $th);
+            return view('mapel.index')->with('error', $th->getMessage());
         }
     }
 
@@ -35,7 +32,7 @@ class MapelController extends Controller
      */
     public function create()
     {
-        //
+        return view('mapel.add');
     }
 
     /**
@@ -46,7 +43,20 @@ class MapelController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $validator = Validator::make($request->all(), [
+                'nama_mapel' => 'required'
+            ]);
+
+            if($validator->fails()){
+                return redirect()->route('mapel.create')->withErrors($validator);
+            }
+
+            Mapel::create($request->all());
+            return redirect()->route('mapel.index')->with('success', 'Data berhasil ditambahkan.');
+        } catch (\Throwable $th) {
+            return redirect()->route('mapel.create')->withErrors($th->getMessage());
+        }
     }
 
     /**
@@ -68,7 +78,8 @@ class MapelController extends Controller
      */
     public function edit($id)
     {
-        //
+        $mapel = Mapel::where('id_mapel', '=', $id)->get();
+        return view('mapel.edit', compact('mapel'));
     }
 
     /**
@@ -80,7 +91,25 @@ class MapelController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try {
+            $validator = Validator::make($request->all(), [
+                'nama_mapel' => 'required'
+            ]);
+
+            if($validator->fails()){
+                return back()->withErrors($validator);
+            }
+
+            $mapel_update = [
+                'nama_mapel' => $request->input('nama_mapel')
+            ];
+
+            Mapel::where('id_mapel', '=', $id)->update($mapel_update);
+
+            return redirect()->route('mapel.index')->with('success', 'Data berhasil diperbarui.');
+        } catch (\Throwable $th) {
+            return redirect()->route('mapel.edit', $id)->withErrors($th->getMessage());
+        }
     }
 
     /**
@@ -91,6 +120,12 @@ class MapelController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            Mapel::where('id_mapel', '=', $id)->delete();
+            return redirect()->route('mapel.index')->with('success', 'Data berhasil dihapus.');
+        } catch (\Throwable $th) {
+            return redirect()->route('mapel.index')->withErrors($th->getMessage());
+        }
+
     }
 }

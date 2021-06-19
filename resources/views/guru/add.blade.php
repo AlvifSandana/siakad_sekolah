@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 
-
 @section('content')
   <div class="row">
     @if (count($errors) > 0)
