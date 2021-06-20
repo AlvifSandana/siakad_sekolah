@@ -1,13 +1,24 @@
-@extends('layouts.app')
+@extends('layouts.master')
+@section('title', 'Guru')
+
+@section('css')
+@endsection
+
+@section('style')
+@endsection
+
+@section('breadcrumb-title')
+<h3>Data Guru</h3>
+@endsection
+
+@section('breadcrumb-items')
+<li class="breadcrumb-item active">Guru</li>
+@endsection
 
 @section('content')
     <div class="row">
         <div class="col-md-12">
             <div class="card">
-              <div class="card-header card-header-primary">
-                <h4 class="card-title ">Data Guru</h4>
-                <p class="card-category">SMP Jaya</p>
-              </div>
               <div class="card-body">
                 <div class="table-responsive">
                   <table class="table">

@@ -1,4 +1,19 @@
-@extends('layouts.app')
+@extends('layouts.master')
+@section('title', 'Kelas')
+
+@section('css')
+@endsection
+
+@section('style')
+@endsection
+
+@section('breadcrumb-title')
+<h3>Data Kelas</h3>
+@endsection
+
+@section('breadcrumb-items')
+<li class="breadcrumb-item active">Kelas</li>
+@endsection
 
 @section('content')
     <div class="row">
