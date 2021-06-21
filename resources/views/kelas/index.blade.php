@@ -17,6 +17,16 @@
 
 @section('content')
     <div class="row">
+        @if (count($errors) > 0)
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <div class="message mt-2">
+                    <strong>Error -</strong> {{ $errors }}
+                </div>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @endif
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
@@ -28,6 +38,7 @@
                                 <th>Tahun Ajaran</th>
                                 <th>Semester</th>
                                 <th>Nama Wali Kelas</th>
+                                <th class="text-center">Action</th>
                             </thead>
                             <tbody>
                                 @foreach ($data_kelas as $data)
@@ -37,6 +48,14 @@
                                     <td>{{ $data->thn_ajaran }}</td>
                                     <td>{{ $data->nm_semester }}</td>
                                     <td>{{ $data->nama_wali_kelas }}</td>
+                                    <td class="text-center">
+                                        <form action="{{ route('kelas.destroy', $data->id_kelas) }}" method="post">
+                                            <a href="{{ route('kelas.edit', $data->id_kelas) }}" class="btn btn-sm btn-warning">Edit</a>
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
+                                        </form>
+                                    </td>
                                 </tr>
                                 @endforeach
                             </tbody>

@@ -22,10 +22,10 @@ Fitur yang sedang dikerjakan untuk aplikasi SiAkad:
 - [ ] Upload img profil guru
 
 #### Kelas
-- [ ] Tambah data kelas
-- [ ] Ubah data Kelas
+- [x] Tambah data kelas
+- [x] Ubah data Kelas
 - [x] Tabel detail data kelas
-- [ ] Hapus data kelas
+- [x] Hapus data kelas
 
 #### Wali Kelas
 - [ ] Tambah data wali kelas
