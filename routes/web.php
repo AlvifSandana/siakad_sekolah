@@ -23,7 +23,8 @@ Route::resources([
     'guru' => 'GuruController',
     'siswa'=> 'SiswaController',
     'kelas' => 'KelasController',
-    'mapel' => 'MapelController'
+    'mapel' => 'MapelController',
+    'walikelas' => 'WaliKelasController'
 ]);
 
 Route::get('/login', function () {
