@@ -28,10 +28,10 @@ Fitur yang sedang dikerjakan untuk aplikasi SiAkad:
 - [x] Hapus data kelas
 
 #### Wali Kelas
-- [ ] Tambah data wali kelas
-- [ ] Ubah data wali kelas
-- [ ] Tabel detail data wali kelas
-- [ ] Hapus data wali kelas
+- [x] Tambah data wali kelas
+- [x] Ubah data wali kelas
+- [x] Tabel detail data wali kelas
+- [x] Hapus data wali kelas
 
 #### Mata Pelajaran
 - [x] Tambah data mata pelajaran 

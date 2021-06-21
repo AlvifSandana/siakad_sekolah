@@ -10,4 +10,5 @@ class WaliKelas extends Model
     protected $table = 'wali_kelas';
     protected $primaryKey = 'id_wali_kelas';
     public $timestamps = true;
+    protected $fillable = ['guru_id'];
 }
