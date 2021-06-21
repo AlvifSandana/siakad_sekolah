@@ -78,7 +78,7 @@
                             </tbody>
                         </table>
                     </div>
-                    {{$data_siswa->links()}}
+                    <div class="float-right pt-3">{{$data_siswa->links()}}</div>
                 </div>
             </div>
         </div>

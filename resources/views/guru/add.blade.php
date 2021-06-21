@@ -1,4 +1,20 @@
 @extends('layouts.master')
+@section('title', 'Form Input Data Guru')
+
+@section('css')
+@endsection
+
+@section('style')
+@endsection
+
+@section('breadcrumb-title')
+<h3>Form Input Data Guru</h3>
+@endsection
+
+@section('breadcrumb-items')
+<li class="breadcrumb-item"><a href="{{ route('guru.index') }}">Guru</a></li>
+<li class="breadcrumb-item">Input Data Guru</li>
+@endsection
 
 
 @section('content')
@@ -15,10 +31,6 @@
     @endif
     <div class="col-md-12">
       <div class="card">
-        <div class="card-header card-header-primary">
-          <h4 class="card-title">Form Data Guru</h4>
-          <p class="card-category">Isi dengan lengkap</p>
-        </div>
         <div class="card-body">
           <form action="{{ route('guru.store') }}" method="POST">
             @csrf

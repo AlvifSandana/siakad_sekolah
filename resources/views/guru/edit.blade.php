@@ -1,12 +1,25 @@
 @extends('layouts.master')
+@section('title', 'Ubah Data Guru')
+
+@section('css')
+@endsection
+
+@section('style')
+@endsection
+
+@section('breadcrumb-title')
+<h3>Ubah Data Guru</h3>
+@endsection
+
+@section('breadcrumb-items')
+<li class="breadcrumb-item"><a href="{{ route('guru.index') }}">Guru</a></li>
+<li class="breadcrumb-item active">Edit Data Guru</li>
+@endsection
 
 @section('content')
     <div class="row">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header card-header-warning">
-                    <div class="card-title">Edit Data Guru</div>
-                </div>
                 <div class="card-body">
                     @foreach ($guru as $data_guru)
                     <form action="{{ route('guru.update', $data_guru->id_guru) }}" method="POST">

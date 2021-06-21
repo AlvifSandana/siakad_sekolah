@@ -1,4 +1,20 @@
 @extends('layouts.master')
+@section('title', 'Ubah Data Mata Pelajaran')
+
+@section('css')
+@endsection
+
+@section('style')
+@endsection
+
+@section('breadcrumb-title')
+<h3>Ubah Data Mata Pelajaran</h3>
+@endsection
+
+@section('breadcrumb-items')
+<li class="breadcrumb-item"><a href="{{ route('mapel.index') }}">Mata Pelajaran</a></li>
+<li class="breadcrumb-item active">Edit Mata Pelajaran</li>
+@endsection
 
 @section('content')
     <div class="row">
@@ -14,9 +30,6 @@
         @endif
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title">Edit Mata Pelajaran</h4>
-                </div>
                 <div class="card-body">
                     @foreach ($mapel as $m)
                         <form action="{{ route('mapel.update', $m->id_mapel) }}" method="post">

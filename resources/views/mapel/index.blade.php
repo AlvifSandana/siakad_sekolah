@@ -29,10 +29,6 @@
         @endif
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header card-header-primary">
-                    <h4 class="card-title">Data Mata Pelajaran</h4>
-                    <p class="card-category">SMP Jaya</p>
-                </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table">

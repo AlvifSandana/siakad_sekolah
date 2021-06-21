@@ -1,4 +1,20 @@
 @extends('layouts.master')
+@section('title', 'Form Input Data Siswa')
+
+@section('css')
+@endsection
+
+@section('style')
+@endsection
+
+@section('breadcrumb-title')
+<h3>Form Input Data Siswa</h3>
+@endsection
+
+@section('breadcrumb-items')
+<li class="breadcrumb-item"><a href="{{ route('siswa.index') }}">Siswa</a></li>
+<li class="breadcrumb-item active">Input Data Siswa</li>
+@endsection
 
 @section('content')
   <div class="row">
@@ -14,10 +30,6 @@
     @endif
     <div class="col-md-12">
       <div class="card">
-        <div class="card-header card-header-primary">
-          <h4 class="card-title">Form Data Siswa</h4>
-          <p class="card-category">Isi dengan lengkap</p>
-        </div>
         <div class="card-body">
           <form action="{{ route('siswa.store') }}" method="POST">
             @csrf
