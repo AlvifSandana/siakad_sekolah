@@ -60,10 +60,10 @@
                         <ul class="nav-submenu menu-content"
                             style="display: {{ Request::is('walikelas/*') || Request::is('walikelas') ? 'block;': 'none;' }}">
                             <li>
-                                <a class="submenu-title {{ Route::current()->getname() == 'walikelas.create' ? 'active' : '' }}" href="{{ route('guru.create') }}">Tambah Wali Kelas</a>
+                                <a class="submenu-title {{ Route::current()->getname() == 'walikelas.create' ? 'active' : '' }}" href="{{ route('walikelas.create') }}">Tambah Wali Kelas</a>
                             </li>
                             <li>
-                                <a class="submenu-title {{ Route::current()->getname() == 'walikelas.index' ? 'active' : '' }}" href="{{ route('guru.index') }}">Detail</a>
+                                <a class="submenu-title {{ Route::current()->getname() == 'walikelas.index' ? 'active' : '' }}" href="{{ route('walikelas.index') }}">Detail</a>
                             </li>
                         </ul>
                     </li>
