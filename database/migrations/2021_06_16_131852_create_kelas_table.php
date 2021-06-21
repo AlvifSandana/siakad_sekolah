@@ -16,9 +16,9 @@ class CreateKelasTable extends Migration
         Schema::create('kelas', function (Blueprint $table) {
             $table->id('id_kelas');
             $table->string('nama_kelas');
-            $table->foreignId('wali_kls_id')->constrained('wali_kelas', 'id_wali_kelas');
-            $table->foreignId('tahun_ajaran_id')->constrained('tahun_ajaran', 'id_tahun_ajaran');
-            $table->foreignId('semester_id')->constrained('semester', 'id_semester');
+            $table->foreignId('wali_kls_id')->constrained('wali_kelas', 'id_wali_kelas')->onDelete('cascade');
+            $table->foreignId('tahun_ajaran_id')->constrained('tahun_ajaran', 'id_tahun_ajaran')->onDelete('cascade');
+            $table->foreignId('semester_id')->constrained('semester', 'id_semester')->onDelete('cascade');
             $table->timestamps();
         });
     }

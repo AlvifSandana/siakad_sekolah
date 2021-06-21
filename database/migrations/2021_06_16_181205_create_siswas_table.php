@@ -36,8 +36,8 @@ class CreateSiswasTable extends Migration
             $table->text('alamat_wali')->nullable();
             $table->string('no_hp_wali')->nullable();
             $table->string('pekerjaan_wali')->nullable();
-            $table->foreignId('kelas_id')->constrained('kelas', 'id_kelas');
-            $table->foreignId('tahun_angkatan_id')->constrained('tahun_ajaran', 'id_tahun_ajaran');
+            $table->foreignId('kelas_id')->constrained('kelas', 'id_kelas')->onDelete('cascade');
+            $table->foreignId('tahun_angkatan_id')->constrained('tahun_ajaran', 'id_tahun_ajaran')->onDelete('cascade');
             $table->string('profile_img')->nullable();
             $table->timestamps();
         });
