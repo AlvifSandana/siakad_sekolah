@@ -9,9 +9,9 @@ Fitur yang sedang dikerjakan untuk aplikasi SiAkad:
 
 #### Siswa
 - [x] Tambah data siswa
-- [ ] Ubah data siswa
+- [x] Ubah data siswa
 - [x] Tabel detail data siswa
-- [ ] Hapus data siswa
+- [x] Hapus data siswa
 - [ ] Upload img profil siswa
 
 #### Guru
