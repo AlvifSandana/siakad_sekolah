@@ -16,18 +16,28 @@
 @endsection
 
 @section('content')
-    <div class="row">
+<div class="row">
+    @if (count($errors) > 0)
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <div class="message mt-2">
+                    <strong>Error -</strong> {{ $errors }}
+                </div>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+    @endif
     <div class="col-lg-3 col-md-6 col-sm-6">
         <div class="card card-stats">
         <div class="card-header card-header-warning card-header-icon">
             <p class="card-category">Jumlah Siswa</p>
-            <h3 class="card-title">{{ $n_siswa }}
+            <h4 class="card-title">{{ $n_siswa }}
             <small>Orang</small>
-            </h3>
+            </h4>
         </div>
         <div class="card-footer">
             <div class="stats">
-            <a href="/siswa">Selengkapnya</a>
+            <a href="{{ route('siswa.index') }}">Selengkapnya<i class="float-right" data-feather="arrow-right"></i></a>
             </div>
         </div>
         </div>
@@ -36,11 +46,11 @@
         <div class="card card-stats">
         <div class="card-header card-header-success card-header-icon">
             <p class="card-category">Jumlah Guru</p>
-            <h3 class="card-title">{{ $n_guru }} <small>Orang</small></h3>
+            <h4 class="card-title">{{ $n_guru }} <small>Orang</small></h4>
         </div>
         <div class="card-footer">
             <div class="stats">
-            <a href="/guru">Selengkapnya</a>
+            <a href="{{ route('guru.index') }}">Selengkapnya<i class="float-right" data-feather="arrow-right"></i></a>
             </div>
         </div>
         </div>
@@ -49,11 +59,11 @@
         <div class="card card-stats">
         <div class="card-header card-header-danger card-header-icon">
             <p class="card-category">Mata Pelajaran</p>
-            <h3 class="card-title">{{ $n_mapel }}<small> Mata Pelajaran</small></h3>
+            <h4 class="card-title text-nowrap">{{ $n_mapel }}<small> Mata Pelajaran</small></h4>
         </div>
         <div class="card-footer">
             <div class="stats">
-            <a href="/mapel">Selengkapnya</a>
+            <a href="{{ route('mapel.index') }}">Selengkapnya<i class="float-right" data-feather="arrow-right"></i></a>
             </div>
         </div>
         </div>
@@ -62,14 +72,14 @@
         <div class="card card-stats">
         <div class="card-header card-header-info card-header-icon">
             <p class="card-category">Jumlah Kelas</p>
-            <h3 class="card-title">{{ $n_kelas }} <small>Ruang</small></h3>
+            <h4 class="card-title">{{ $n_kelas }} <small>Ruang</small></h4>
         </div>
         <div class="card-footer">
             <div class="stats">
-            <a href="/kelas">Selengkapnya</a>
+            <a href="{{ route('kelas.index') }}">Selengkapnya<i class="float-right" data-feather="arrow-right"></i></a>
             </div>
         </div>
         </div>
     </div>
-    </div>
+</div>
 @endsection
