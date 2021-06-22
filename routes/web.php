@@ -24,7 +24,8 @@ Route::resources([
     'siswa'=> 'SiswaController',
     'kelas' => 'KelasController',
     'mapel' => 'MapelController',
-    'walikelas' => 'WaliKelasController'
+    'walikelas' => 'WaliKelasController',
+    'jadwalpelajaran' => 'JadwalPelajaranController'
 ]);
 
 Route::get('/login', function () {
