@@ -26,10 +26,10 @@
                         <ul class="nav-submenu menu-content"
                             style="display: {{ Request::is('jadwalpelajaran/*') || Request::is('jadwalpelajaran') ? 'block;': 'none;' }}">
                             <li>
-                                <a class="submenu-title {{ Route::current()->getname() == 'jadwalpelajaran.create' }}" href="/jadwalpelajaran">Tambah Jadwal</a>
+                                <a class="submenu-title {{ Route::current()->getname() == 'jadwalpelajaran.create' ? 'active' : '' }}" href="{{ route('jadwalpelajaran.create') }}">Tambah Jadwal</a>
                             </li>
                             <li>
-                                <a class="submenu-title {{ Route::current()->getname() == 'jadwalpelajaran.index' }}" href="/jadwalpelajaran">Detail</a>
+                                <a class="submenu-title {{ Route::current()->getname() == 'jadwalpelajaran.index' ? 'active' : '' }}" href="{{ route('jadwalpelajaran.index') }}">Detail</a>
                             </li>
                         </ul>
                     </li>
