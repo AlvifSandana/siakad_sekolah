@@ -41,9 +41,9 @@ Fitur yang sedang dikerjakan untuk aplikasi SiAkad:
 
 #### Jadwal Pelajaran
 - [x] Tambah data jadwal pelajaran
-- [ ] Ubah data jadwal pelajaran
+- [x] Ubah data jadwal pelajaran
 - [ ] Tabel detail data jadwal pelajaran
-- [ ] Hapus data jadwal pelajaran
+- [x] Hapus data jadwal pelajaran
 
 #### Data Sekolah
 - [ ] Tambah data sekolah (nama sekolah, alamat, no. telpon, dll.)
