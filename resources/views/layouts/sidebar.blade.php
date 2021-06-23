@@ -34,6 +34,23 @@
                         </ul>
                     </li>
                     <li class="dropdown">
+                        <a class="nav-link menu-title {{ Request::is('datasekolah/*') || Request::is('datasekolah') ? 'active': '' }}"
+                            href="#"><i data-feather="info"></i><span>Data Sekolah</span>
+                            <div class="according-menu"><i
+                                    class="fa fa-angle-{{ Request::is('datasekolah') ? 'down': 'right' }}"></i>
+                            </div>
+                        </a>
+                        <ul class="nav-submenu menu-content"
+                            style="display: {{ Request::is('datasekolah/*') || Request::is('datasekolah') ? 'block;': 'none;' }}">
+                            <li>
+                                <a class="submenu-title {{ Route::current()->getname() == 'datasekolah.edit' ? 'active' : '' }}" href="{{ route('datasekolah.edit', 1) }}">Ubah Data</a>
+                            </li>
+                            <li>
+                                <a class="submenu-title {{ Route::current()->getname() == 'datasekolah.index' ? 'active' : '' }}" href="{{ route('datasekolah.index') }}">Detail</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
                         <a class="nav-link menu-title {{ Request::is('guru/*') || Request::is('guru') ? 'active': '' }}"
                             href="#"><i data-feather="briefcase"></i><span>Guru</span>
                             <div class="according-menu"><i

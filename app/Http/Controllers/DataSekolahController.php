@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\Validator;
 
 class DataSekolahController extends Controller
 {
+    public function index(){
+        $data_sekolah = DataSekolah::all();
+        return view('datasekolah.index', compact('data_sekolah'));
+    }
+
     public function edit(){
         $data_sekolah = DataSekolah::where('id_data_sekolah', 1)->get();
         return view('datasekolah.edit', compact('data_sekolah'));
