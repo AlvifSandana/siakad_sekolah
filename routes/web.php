@@ -28,6 +28,9 @@ Route::resources([
     'jadwalpelajaran' => 'JadwalPelajaranController'
 ]);
 
+Route::get('datasekolah/{id}/edit', 'DataSekolahController@edit')->name('DataSekolah.edit');
+Route::put('datasekolah/{id}/update', 'DataSekolahController@update')->name('DataSekolah.update');
+
 Route::get('/login', function () {
     return view('login');
 });

@@ -6,6 +6,7 @@ use App\Siswa;
 use App\Guru;
 use App\Kelas;
 use App\Mapel;
+use App\DataSekolah;
 
 use Illuminate\Http\Request;
 
@@ -22,12 +23,14 @@ class DashboardController extends Controller
         $jumlah_guru = count(Guru::all());
         $jumlah_kelas = count(Kelas::all());
         $jumlah_mapel = count(Mapel::all());
+        $data_sekolah = DataSekolah::all();
 
         return view('dashboard.index', [
             'n_siswa' => $jumlah_siswa,
             'n_guru' => $jumlah_guru,
             'n_kelas' => $jumlah_kelas,
-            'n_mapel' => $jumlah_mapel
+            'n_mapel' => $jumlah_mapel,
+            'sekolah' => $data_sekolah
         ]);
     }
 
