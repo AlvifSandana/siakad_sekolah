@@ -17,8 +17,6 @@
           </div>
           <ul class="profile-dropdown onhover-show-div">
             <li><i data-feather="user"></i><span>Account </span></li>
-            <li><i data-feather="mail"></i><span>Inbox</span></li>
-            <li><i data-feather="file-text"></i><span>Taskboard</span></li>
             <li><i data-feather="settings"></i><span>Settings</span></li>
             <li><i data-feather="log-in"> </i><span>Log in</span></li>
           </ul>
