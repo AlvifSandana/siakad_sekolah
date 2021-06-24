@@ -86,10 +86,17 @@
                     <td>{{ $siswa->angkatan }}</td>
                     <td class="">
                       <form action="{{ route('siswa.destroy', $siswa->id_siswa) }}" method="post">
-                        <a href="{{ route('siswa.edit', $siswa->id_siswa) }}" class="btn btn-warning m-2">Edit</a>
+                        <a href="{{ route('siswa.show', $siswa->id_siswa) }}" class="btn btn-sm btn-info m-1" data-bs-container="body" data-bs-toggle="tooltip" data-bs-placement="top" title="detail">
+                            <i class="fa fa-info"></i>
+                        </a>
+                        <a href="{{ route('siswa.edit', $siswa->id_siswa) }}" class="btn btn-sm btn-warning m-1" data-bs-container="body" data-bs-toggle="tooltip" data-bs-placement="top" title="edit data">
+                            <i class="fa fa-edit"></i>
+                        </a>
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger m-2">Hapus</button>
+                        <button type="submit" class="btn btn-sm btn-danger m-1" data-bs-container="body" data-bs-toggle="tooltip" data-bs-placement="top" title="hapus">
+                            <i class="fa fa-trash"></i>
+                        </button>
                       </form>
                     </td>
                   </tr>

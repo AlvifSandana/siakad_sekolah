@@ -68,12 +68,13 @@ class SiswaController extends Controller
                 'pekerjaan_ibu' => 'required',
                 'kelas_id' => 'required',
                 'tahun_angkatan_id' => 'required',
+                'profile_img' => 'required'
             ]);
 
             if ($validator->fails()) {
-                return redirect()->route('siswa.create')->withErrors($validator);
+                return redirect()->route('siswa.create')->withErrors($validator)->withInput();
             }
-
+            $profile_img = $request->file('profile_img');
             $siswa_input = [
                 'nisn' => $request->input('nisn'),
                 'nis' => $request->input('nis'),
@@ -98,10 +99,16 @@ class SiswaController extends Controller
                 'pekerjaan_wali' => $request->input('pekerjaan_wali'),
                 'kelas_id' => $request->input('kelas_id'),
                 'tahun_angkatan_id' => $request->input('tahun_angkatan_id'),
+                'profile_img' => $profile_img == null ? 'img_siswa.jpg' : $profile_img->getClientOriginalName(),
             ];
 
             Siswa::create($siswa_input);
-            return redirect()->route('siswa.index')->with('success', 'Data berhasil ditambahkan.');
+            if ($profile_img == null) {
+                return redirect()->route('siswa.index')->with('success', 'Data berhasil ditambahkan.');
+            } else {
+                $profile_img->move('profile_img/siswa', $profile_img->getClientOriginalName());
+                return redirect()->route('siswa.index')->with('success', 'Data berhasil ditambahkan.');
+            }
         } catch (\Throwable $th) {
             return redirect()->route('siswa.create')->withErrors($th->getMessage());
         }
@@ -115,7 +122,14 @@ class SiswaController extends Controller
      */
     public function show($id)
     {
-        //
+        $data_siswa = Siswa::where('id_siswa', $id)->get();
+        $kelas = DB::table('kelas')
+            ->select('id_kelas', 'nama_kelas')
+            ->get();
+        $tahun_angkatan = DB::table('tahun_ajaran')
+            ->select('id_tahun_ajaran', 'nama_tahun_ajaran as tahun_angkatan')
+            ->get();;
+        return view('siswa.show', compact('data_siswa', 'kelas', 'tahun_angkatan'));
     }
 
     /**
@@ -171,9 +185,9 @@ class SiswaController extends Controller
             ]);
 
             if ($validator->fails()) {
-                return redirect()->route('siswa.create')->withErrors($validator);
+                return redirect()->route('siswa.create')->withErrors($validator)->withInput();
             }
-
+            $profile_img = $request->file('profile_img');
             $siswa_update = [
                 'nisn' => $request->input('nisn'),
                 'nis' => $request->input('nis'),
@@ -198,9 +212,15 @@ class SiswaController extends Controller
                 'pekerjaan_wali' => $request->input('pekerjaan_wali'),
                 'kelas_id' => $request->input('kelas_id'),
                 'tahun_angkatan_id' => $request->input('tahun_angkatan_id'),
+                'profile_img' => !$profile_img->getClientOriginalName() ? 'img_siswa.jpg' : $profile_img->getClientOriginalName()
             ];
             Siswa::where('id_siswa', $id)->update($siswa_update);
-            return redirect()->route('siswa.index')->with('success', 'Data berhasil diperbarui.');
+            if ($profile_img == null) {
+                return redirect()->route('siswa.index')->with('success', 'Data berhasil diperbarui.');
+            } else {
+                $profile_img->move('profile_img/siswa', $profile_img->getClientOriginalName());
+                return redirect()->route('siswa.index')->with('success', 'Data berhasil diperbarui.');
+            }
         } catch (\Throwable $th) {
             return redirect()->route('siswa.index')->withErrors($th->getMessage());
         }
