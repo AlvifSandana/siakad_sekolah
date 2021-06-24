@@ -12,14 +12,14 @@ Fitur yang sedang dikerjakan untuk aplikasi SiAkad:
 - [x] Ubah data siswa
 - [x] Tabel detail data siswa
 - [x] Hapus data siswa
-- [ ] Upload img profil siswa
+- [x] Upload img profil siswa
 
 #### Guru
 - [x] Tambah data guru
 - [x] Ubah data guru
 - [x] Tabel detail data guru
 - [x] Hapus data guru
-- [ ] Upload img profil guru
+- [x] Upload img profil guru
 
 #### Kelas
 - [x] Tambah data kelas
