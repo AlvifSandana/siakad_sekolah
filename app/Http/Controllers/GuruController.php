@@ -84,7 +84,8 @@ class GuruController extends Controller
      */
     public function show($id)
     {
-        //
+        $guru = Guru::where('id_guru', $id)->get();
+        return view('guru.show', compact('guru'));
     }
 
     /**
