@@ -46,7 +46,7 @@ class SiswaSeeder extends Seeder
                 'no_hp_wali' => $faker->phoneNumber,
                 'kelas_id' => $faker->numberBetween(1, 9),
                 'tahun_angkatan_id' => $faker->numberBetween(1, 3),
-                'profile_img' => 'siswa_010101.jpg',
+                'profile_img' => 'img_siswa.jpg',
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now(),
             ]);

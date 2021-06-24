@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Guru;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class GuruController extends Controller
@@ -54,6 +53,7 @@ class GuruController extends Controller
             if ($validator->fails()) {
                 return back()->withErrors($validator)->withInput();
             }else{
+                $profile_img = $request->file('profile_img');
                 $data_input = [
                     'nama_lengkap_guru' => $request->input('nama_lengkap_guru'),
                     'nip' => $request->input('nip'),
@@ -65,13 +65,14 @@ class GuruController extends Controller
                     'no_hp_guru' => $request->input('no_hp_guru'),
                     'email_guru' => $request->input('email_guru'),
                     'role' => 'guru',
-                    'profile_img' => 'img_guru.jpg',
+                    'profile_img' => !$profile_img->getClientOriginalName() ? 'profile_img.jpg' : $profile_img->getClientOriginalName(),
                 ];
                 Guru::create($data_input);
+                $profile_img->move('profile_img/guru', $profile_img->getClientOriginalName());
                 return redirect()->route('guru.index')->with('success', 'Data berhasil ditambahkan.');
             }
         } catch (\Throwable $th) {
-            return redirect()->route('dashboard.index')->with('fail_msg', $th->getMessage());
+            return redirect()->route('dashboard.index')->withErrors($th->getMessage());
         }
     }
 
@@ -123,6 +124,7 @@ class GuruController extends Controller
             if ($validator->fails()) {
                 return back()->withErrors($validator)->withInput();
             }else{
+                $profile_img = $request->file('profile)img');
                 $data_update = [
                     'nama_lengkap_guru' => $request->input('nama_lengkap_guru'),
                     'nip' => $request->input('nip'),
@@ -134,9 +136,10 @@ class GuruController extends Controller
                     'no_hp_guru' => $request->input('no_hp_guru'),
                     'email_guru' => $request->input('email_guru'),
                     'role' => 'guru',
-                    'profile_img' => 'img_guru.jpg',
+                    'profile_img' => !$profile_img->getClientOriginalName() ? 'img_guru.jpg' : $profile_img->getClientOriginalName(),
                 ];
                 Guru::where('id_guru', '=', $id)->update($data_update);
+                $profile_img->move('profile_img/guru');
                 return redirect()->route('guru.index')->with('success', 'Data berhasil ditambahkan.');
             }
         } catch (\Throwable $th) {

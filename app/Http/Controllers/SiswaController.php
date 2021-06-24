@@ -25,7 +25,7 @@ class SiswaController extends Controller
 
             return view('siswa.index', compact('data_siswa'))->with('success', 'Data Available');
         } catch (\Throwable $th) {
-            return view('siswa.index')->with('error', $th);
+            return view('siswa.index')->withErrors($th->getMessage());
         }
     }
 

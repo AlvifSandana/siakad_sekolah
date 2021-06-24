@@ -18,14 +18,14 @@
 @section('content')
 <div class="row">
     @if (count($errors) > 0)
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <div class="message mt-2">
-                    <strong>Error -</strong> {{ $errors }}
-                </div>
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <div class="message mt-2">
+                <strong>Error -</strong> {{ $errors }}
             </div>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
     @endif
     <div class="col-lg-3 col-md-6 col-sm-6">
         <div class="card card-stats">

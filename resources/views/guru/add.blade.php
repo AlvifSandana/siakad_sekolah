@@ -32,7 +32,7 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-body">
-          <form action="{{ route('guru.store') }}" method="POST">
+          <form action="{{ route('guru.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row">
               <div class="col-md-8">
@@ -107,6 +107,14 @@
                     <div class="form-group">
                         <label class="bmd-label-floating">Email Guru</label>
                         <input class="form-control" type="email" name="email_guru">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="bmd-floating-label">Upload Foto</label>
+                        <input type="file" name="profile_img" class="form-control">
                     </div>
                 </div>
             </div>

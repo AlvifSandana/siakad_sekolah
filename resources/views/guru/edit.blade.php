@@ -22,7 +22,7 @@
             <div class="card">
                 <div class="card-body">
                     @foreach ($guru as $data_guru)
-                    <form action="{{ route('guru.update', $data_guru->id_guru) }}" method="POST">
+                    <form action="{{ route('guru.update', $data_guru->id_guru) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="row">
@@ -96,6 +96,14 @@
                                   <div class="form-group">
                                       <label class="bmd-label-floating">Email Guru</label>
                                       <input class="form-control" type="email" value="{{ $data_guru->email_guru }}" name="email_guru">
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-6">
+                                  <div class="form-group">
+                                      <img class="rounded img-thumbnail mb-2" src="{{ asset('profile_img/guru/'.$data_guru->profile_img )}}" alt="foto guru" >
+                                      <input type="file" name="profile_img" class="form-control">
                                   </div>
                               </div>
                           </div>

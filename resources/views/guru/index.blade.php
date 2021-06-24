@@ -30,7 +30,7 @@
         <div class="col-md-12">
             <div class="card">
               <div class="card-body">
-                <div class="table-responsive">
+                <div class="table">
                   <table class="table">
                     <thead class="text-center text-primary">
                       <th>
@@ -64,12 +64,19 @@
                             <td class="text-center">Pria</td>
                             @endif
                             <td class="text-center">{{ $guru->agama }}</td>
-                            <td class="text-center">
+                            <td class="inline-block text-center">
                                 <form action="{{ route('guru.destroy', $guru->id_guru) }}" method="POST">
-                                    <a href="{{ route('guru.edit', $guru->id_guru) }}" class="btn btn-sm btn-warning">Edit</a>
+                                    <a href="{{ route('guru.show', $guru->id_guru) }}" class="btn btn-sm btn-info m-1" data-bs-container="body" data-bs-toggle="tooltip" data-bs-placement="top" title="tampilkan">
+                                        <i class="fa fa-info"></i>
+                                    </a>
+                                    <a href="{{ route('guru.edit', $guru->id_guru) }}" class="btn btn-sm btn-warning m-1" data-bs-container="body" data-bs-toggle="tooltip" data-bs-placement="top" title="ubah data">
+                                        <i class="fa fa-edit"></i>
+                                    </a>
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
+                                    <button type="submit" class="btn btn-sm btn-danger m-1" data-bs-container="body" data-bs-toggle="tooltip" data-bs-placement="top" title="hapus">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
                                 </form>
                             </td>
                         </tr>
