@@ -20,7 +20,12 @@
         @if (count($errors) > 0)
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
                 <div class="message mt-2">
-                    <strong>Error -</strong> {{ $errors }}
+                    <strong>Error!</strong><br/>
+                    <ul>
+                    @foreach ($errors as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                    </ul>
                 </div>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -34,8 +39,21 @@
                         <thead>
                             <th>Hari</th>
                             <th>Kelas</th>
+                            <th>Mapel</th>
                             <th>Jam ke-</th>
+                            <th>Pengajar</th>
                         </thead>
+                        <tbody>
+                            @foreach ($jadwal_pelajaran as $jp)
+                            <tr>
+                                <td>{{ $jp->hari }}</td>
+                                <td>{{ $jp->kelas }}</td>
+                                <td>{{ $jp->mapel }}</td>
+                                <td>{{ $jp->mulai.' - '.$jp->akhir }}</td>
+                                <td>{{ $jp->pengajar }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
                     </table>
                 </div>
             </div>

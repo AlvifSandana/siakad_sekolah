@@ -32,6 +32,6 @@ Route::get('datasekolah', 'DataSekolahController@index')->name('datasekolah.inde
 Route::get('datasekolah/{id}/edit', 'DataSekolahController@edit')->name('datasekolah.edit');
 Route::put('datasekolah/{id}/update', 'DataSekolahController@update')->name('datasekolah.update');
 
-Route::get('/login', function () {
+Route::get('/', function () {
     return view('login');
 });

@@ -23,8 +23,10 @@ class CreateGurusTable extends Migration
             $table->string('jenis_kelamin_guru');
             $table->string('agama');
             $table->string('no_hp_guru')->nullable();
-            $table->string('email_guru')->nullable();
+            $table->string('email')->unique();
+            $table->string('password');
             $table->string('role');
+            $table->string('rememberToken')->nullable();
             $table->string('profile_img')->nullable();
             $table->timestamps();
         });

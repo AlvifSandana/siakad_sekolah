@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="{{ asset('css/loginstyles.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets/css/loginstyles.css') }}">
 </head>
 <body>
   <section class="ftco-section">
@@ -18,16 +18,17 @@
               <span class="fa fa-user-o"></span>
             </div>
             <h3 class="text-center mb-4">Login Portal</h3>
-            <form action="#" class="login-form">
+            <form action="#" class="login-form" method="POST">
+              @csrf
+              @method('POST')
               <div class="form-group">
-                <input type="text" class="form-control rounded-left" placeholder="Username" required>
+                <input type="text" name="email" class="form-control rounded-left" placeholder="Email" required>
               </div>
               <div class="form-group d-flex">
-                <input type="password" class="form-control rounded-left" placeholder="Password" required>
+                <input type="password" name="password" class="form-control rounded-left" placeholder="Password" required>
               </div>
               <div class="form-group">
-                <button type="submit" class="btn btn-primary rounded submit p-3 px-5">Get
-                  Started</button>
+                <button type="submit" class="btn btn-primary rounded submit p-3 px-5">Masuk</button>
               </div>
             </form>
           </div>

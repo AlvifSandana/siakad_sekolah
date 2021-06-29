@@ -18,8 +18,10 @@ class Guru extends Model
         'jenis_kelamin_guru',
         'agama',
         'no_hp_guru',
-        'email_guru',
+        'email',
+        'password',
         'role',
+        'rememberToken',
         'profile_img',
     ];
 }

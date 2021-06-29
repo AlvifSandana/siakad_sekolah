@@ -16,7 +16,21 @@ class JadwalPelajaranController extends Controller
      */
     public function index()
     {
-        //
+        try {
+            $jadwal_pelajaran = DB::table('jadwal_pelajaran')
+                                    ->select('mapel.nama_mapel as mapel', 'guru.nama_lengkap_guru as pengajar', 'hari.nama_hari as hari', 'jam_mapel.jam_mulai as mulai', 'jam_mapel.jam_akhir as akhir', 'kelas.nama_kelas as kelas', 'semester.nama_semester as semester', 'tahun_ajaran.nama_tahun_ajaran as tahun_ajaran')
+                                    ->join('mapel', 'mapel_id', '=', 'mapel.id_mapel')
+                                    ->join('guru', 'guru_id', '=', 'guru.id_guru')
+                                    ->join('hari', 'hari_id', '=', 'hari.id_hari')
+                                    ->join('jam_mapel', 'jam_mapel_id', '=', 'jam_mapel.id_jam_mapel')
+                                    ->join('kelas', 'kelas_id', '=', 'kelas.id_kelas')
+                                    ->join('semester', 'jadwal_pelajaran.semester_id', '=', 'semester.id_semester')
+                                    ->join('tahun_ajaran', 'jadwal_pelajaran.tahun_ajaran_id', '=', 'id_tahun_ajaran')
+                                    ->get();
+            return view('jadwal_pelajaran.index', compact('jadwal_pelajaran'));
+        } catch (\Throwable $th) {
+            return back()->withErrors($th->getMessage());
+        }
     }
 
     /**
