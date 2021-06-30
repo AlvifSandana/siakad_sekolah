@@ -54,4 +54,4 @@ Fitur yang sedang dikerjakan untuk aplikasi SiAkad:
 #### Lain-lain
 - [x] Penyesuaian template (in progress)
 - [x] Tambah Ubah data sekolah
-- [ ] Login form
+- [x] Login form
