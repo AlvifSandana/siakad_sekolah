@@ -81,7 +81,7 @@
                               <div class="col-md-6">
                                   <div class="form-group">
                                       <label class="bmd-label-floating">Email Guru</label>
-                                      <input class="form-control" type="email" value="{{ $data_guru->email_guru }}" name="email_guru" disabled>
+                                      <input class="form-control" type="email" value="{{ $data_guru->email }}" name="email_guru" disabled>
                                   </div>
                               </div>
                           </div>

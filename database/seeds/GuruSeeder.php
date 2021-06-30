@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Faker\Factory as Faker;
+use Illuminate\Support\Facades\Hash;
 
 class GuruSeeder extends Seeder
 {
@@ -34,7 +35,8 @@ class GuruSeeder extends Seeder
                 'jenis_kelamin_guru' => $jk[0],
                 'agama' => $agama[0],
                 'no_hp_guru' => $faker->phoneNumber,
-                'email_guru' => $faker->email,
+                'email' => $faker->email,
+                'password' => Hash::make('12345678'),
                 'role' => 'guru',
                 'profile_img' => 'img_guru.jpg',
                 'created_at' => date('Y-m-d H:i:s'),

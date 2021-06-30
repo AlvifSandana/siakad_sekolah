@@ -9,16 +9,16 @@
         <li><a class="text-dark" href="#!" onclick="javascript:toggleFullScreen()"><i data-feather="maximize"></i></a></li>
         <li class="onhover-dropdown p-0">
           <div class="media profile-media">
-            <img class="b-r-10" src="{{asset('assets/images/dashboard/profile.jpg')}}" alt="">
+            <img class="b-r-10" src="{{asset('profile_img/guru/'.session()->get('profile_img'))}}" alt="" style="max-width: 37px">
             <div class="media-body">
-              <span>Administrator</span>
-              <p class="mb-0 font-roboto">Admin <i class="middle fa fa-angle-down"></i></p>
+              <span>{{ session()->get('nama_lengkap_guru') }}</span>
+              <p class="mb-0 font-roboto">{{ session()->get('role') }} <i class="middle fa fa-angle-down"></i></p>
             </div>
           </div>
           <ul class="profile-dropdown onhover-show-div">
             <li><i data-feather="user"></i><span>Account </span></li>
             <li><i data-feather="settings"></i><span>Settings</span></li>
-            <li><i data-feather="log-in"> </i><span>Log in</span></li>
+            <li><a href="{{ route('logout') }}"><i data-feather="log-out"> </i><span>Log Out</span></a></li>
           </ul>
         </li>
       </ul>

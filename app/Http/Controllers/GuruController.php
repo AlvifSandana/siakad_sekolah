@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Guru;
 use Illuminate\Support\Facades\Validator;
+use Symfony\Component\Console\Input\Input;
 
 class GuruController extends Controller
 {
@@ -63,7 +64,8 @@ class GuruController extends Controller
                     'jenis_kelamin_guru' => $request->input('jenis_kelamin_guru'),
                     'agama' => $request->input('agama'),
                     'no_hp_guru' => $request->input('no_hp_guru'),
-                    'email_guru' => $request->input('email_guru'),
+                    'email' => $request->input('email_guru'),
+                    'password' => $request->input('password'),
                     'role' => 'guru',
                     'profile_img' => !$profile_img->getClientOriginalName() ? 'profile_img.jpg' : $profile_img->getClientOriginalName(),
                 ];
@@ -136,7 +138,7 @@ class GuruController extends Controller
                     'jenis_kelamin_guru' => $request->input('jenis_kelamin_guru'),
                     'agama' => $request->input('agama'),
                     'no_hp_guru' => $request->input('no_hp_guru'),
-                    'email_guru' => $request->input('email_guru'),
+                    'email' => $request->input('email_guru'),
                     'role' => 'guru',
                     'profile_img' => $profile_img == null ? 'img_guru.jpg' : $profile_img->getClientOriginalName(),
                 ];
