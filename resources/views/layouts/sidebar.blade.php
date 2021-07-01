@@ -136,6 +136,23 @@
                             </li>
                         </ul>
                     </li>
+                    <li class="dropdown">
+                        <a class="nav-link menu-title {{  Request::is('pengaturan/*') || Request::is('pengaturan') ? 'active': '' }}"
+                            href="#"><i data-feather="settings"></i><span>Pengaturan</span>
+                            <div class="according-menu"><i
+                                    class="fa fa-angle-{{ Request::is('pengaturan/*')? 'down': 'right' }}"></i>
+                            </div>
+                        </a>
+                        <ul class="nav-submenu menu-content"
+                            style="display: {{ Request::is('pengaturan/*') || Request::is('pengaturan') ? 'block;': 'none;' }}">
+                            <li>
+                                <a class="submenu-title {{ Route::current()->getname() == 'pengaturan.tahunajaran' ? 'active' : '' }}" href="{{ route('pengaturan.tahunajaran') }}">Tahun Ajaran</a>
+                            </li>
+                            <li>
+                                <a class="submenu-title {{ Route::current()->getname() == 'pengaturan.semester' ? 'active' : '' }}" href="{{ route('pengaturan.semester') }}">Semester</a>
+                            </li>
+                        </ul>
+                    </li>
                     @endif
                     @if (Session::get('role') == 'guru')
                     <li class="nav-item">
