@@ -23,6 +23,27 @@
             <div class="card">
                 <div class="card-body">
                     @foreach ($guru as $data_guru)
+                    <form action="{{ route('guru.upload_foto', $data_guru->id_guru) }}" method="post" enctype="multipart/form-data">
+                        @csrf
+                        @method('PUT')
+                        <div class="row">
+                            <div class="col-md-12">
+                                <img src="{{ asset('profile_img/guru/'.$data_guru->profile_img) }}" alt="foto profil" class="img-thumbnail mb-3" style="max-width: 120px">
+                                <input type="file" name="profile_img" id="" class="form-control col-md-6 mb-3">
+                                <div class="pull-right">
+                                    <button type="submit" class="btn btn-warning">Ganti Foto</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
                     <form action="{{ route('guru.update', $data_guru->id_guru) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
@@ -97,14 +118,6 @@
                                   <div class="form-group">
                                       <label class="bmd-label-floating">Email Guru</label>
                                       <input class="form-control" type="email" value="{{ $data_guru->email }}" name="email_guru">
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="row">
-                              <div class="col-md-6">
-                                  <div class="form-group">
-                                      <img class="rounded img-thumbnail mb-2" src="{{ asset('profile_img/guru/'.$data_guru->profile_img )}}" alt="foto guru" >
-                                      <input type="file" name="profile_img" class="form-control">
                                   </div>
                               </div>
                           </div>
