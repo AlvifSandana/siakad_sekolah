@@ -23,7 +23,7 @@
             <div class="card">
                 <div class="card-body">
                     @foreach ($guru as $data_guru)
-                    <form action="{{ route('guru.upload_foto') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('guru.upload_foto', $data_guru->id_guru) }}" method="post" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="row">
