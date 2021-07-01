@@ -7,5 +7,12 @@ use Illuminate\Http\Request;
 
 class WaliKelasController extends Controller
 {
-    //
+    public function __construct()
+    {
+        $this->middleware('ceksesi');
+    }
+
+    public function index(){
+        
+    }
 }
