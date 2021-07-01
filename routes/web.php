@@ -33,6 +33,20 @@ Route::get('datasekolah', 'DataSekolahController@index')->name('datasekolah.inde
 Route::get('datasekolah/{id}/edit', 'DataSekolahController@edit')->name('datasekolah.edit');
 Route::put('datasekolah/{id}/update', 'DataSekolahController@update')->name('datasekolah.update');
 
+// pengaturan route
+// semester
+Route::get('pengaturan/semester', 'PengaturanController@semester')->name('pengaturan.semester');
+Route::get('pengaturan/semester/{id}', 'PengaturanController@editSemester')->name('pengaturan.semester.edit');
+Route::post('pengaturan/semester', 'PengaturanController@addSemester')->name('pengaturan.semester.add');
+Route::put('pengaturan/semester/{id}', 'PengaturanController@updateSemester')->name('pengaturan.semester.update');
+Route::delete('pengaturan/semester/{id}', 'PengaturanController@deleteSemester')->name('pengaturan.semester.delete');
+// tahun ajaran
+Route::get('pengaturan/tahunajaran', 'PengaturanController@tahunajaran')->name('pengaturan.tahunajaran');
+Route::get('pengaturan/tahunajaran/{id}', 'PengaturanController@editTahunAjaran')->name('pengaturan.tahunajaran.edit');
+Route::post('pengaturan/tahunajaran', 'PengaturanController@addTahunAjaran')->name('pengaturan.tahunajaran.add');
+Route::put('pengaturan/tahunajaran/{id}', 'PengaturanController@updateTahunAjaran')->name('pengaturan.tahunajaran.update');
+Route::delete('pengaturan/tahunajaran/{id}', 'PengaturanController@deleteTahunAjaran')->name('pengaturan.tahunajaran.delete');
+
 // auth route
 Route::get('/', 'LoginController@index')->name('login.index');
 Route::post('/', 'LoginController@login')->name('login.auth');
