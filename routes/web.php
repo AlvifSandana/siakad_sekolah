@@ -46,6 +46,9 @@ Route::get('pengaturan/tahunajaran/{id}', 'PengaturanController@editTahunAjaran'
 Route::post('pengaturan/tahunajaran', 'PengaturanController@addTahunAjaran')->name('pengaturan.tahunajaran.add');
 Route::put('pengaturan/tahunajaran/{id}', 'PengaturanController@updateTahunAjaran')->name('pengaturan.tahunajaran.update');
 Route::delete('pengaturan/tahunajaran/{id}', 'PengaturanController@deleteTahunAjaran')->name('pengaturan.tahunajaran.delete');
+// Account
+Route::get('pengaturan/account', 'PengaturanController@accountinfo')->name('pengaturan.accountinfo');
+Route::put('pengaturan/account', 'PengaturanController@accountUpdate')->name('pengaturan.accountupdate');
 
 // auth route
 Route::get('/', 'LoginController@index')->name('login.index');
