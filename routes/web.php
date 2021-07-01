@@ -30,6 +30,8 @@ Route::resources([
 
 // data sekolah route
 Route::get('datasekolah', 'DataSekolahController@index')->name('datasekolah.index');
+Route::get('datasekolah/add', 'DataSekolahController@add')->name('datasekolah.add');
+Route::post('datasekolah/add', 'DataSekolahController@create')->name('datasekolah.create');
 Route::get('datasekolah/{id}/edit', 'DataSekolahController@edit')->name('datasekolah.edit');
 Route::put('datasekolah/{id}/update', 'DataSekolahController@update')->name('datasekolah.update');
 
