@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\Validator;
 
 class MapelController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('ceksesi');
+    }
     /**
      * Display a listing of the resource.
      *

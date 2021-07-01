@@ -9,6 +9,11 @@ use Symfony\Component\Console\Input\Input;
 
 class GuruController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('ceksesi');
+    }
+    
     /**
      * Display a listing of the resource.
      *

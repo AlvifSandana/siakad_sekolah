@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\Validator;
 
 class WaliKelasController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('ceksesi');
+    }
     /**
      * Display a listing of the resource.
      *

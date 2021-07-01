@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\Validator;
 
 class DataSekolahController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('ceksesi');
+    }
+
     public function index(){
         $data_sekolah = DataSekolah::all();
         return view('datasekolah.index', compact('data_sekolah'));

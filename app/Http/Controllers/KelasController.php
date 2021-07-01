@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Validator;
 
 class KelasController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('ceksesi');
+    }
+
     /**
      * Display a listing of the resource.
      *

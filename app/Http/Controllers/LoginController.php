@@ -30,8 +30,6 @@ class LoginController extends Controller
 
             $guru = DB::table('guru')->where('email', '=', $request->input('email'))->first();
 
-
-
             if ($guru->role == 'guru' && Hash::check($request->input('password'), $guru->password)) {
                 session([
                     'nip' => $guru->nip,
@@ -64,9 +62,27 @@ class LoginController extends Controller
                     'profile_img' => $guru->profile_img,
                 ]);
                 return redirect()->route('dashboard.index');
+            } elseif ($guru->role == 'walikelas' && Hash::check($request->input('password'), $guru->password)){
+                session([
+                    'nip' => $guru->nip,
+                    'nama_lengkap_guru' => $guru->nama_lengkap_guru,
+                    'kota_lahir_guru' => $guru->kota_lahir_guru,
+                    'tanggal_lahir_guru' => $guru->tanggal_lahir_guru,
+                    'alamat_guru' => $guru->alamat_guru,
+                    'jenis_kelamin_guru' => $guru->jenis_kelamin_guru,
+                    'agama' => $guru->agama,
+                    'no_hp_guru' => $guru->no_hp_guru,
+                    'email' => $guru->email,
+                    'password' => $guru->password,
+                    'role' => $guru->role,
+                    'profile_img' => $guru->profile_img,
+                ]);
+                return redirect()->route('dashboard.index');
+            } else {
+                return back()->with('error', 'Email atau Password salah.');
             }
         } catch (\Throwable $th) {
-            return back()->withErrors($th->getMessage());
+            return back()->with('error', 'Email atau password salah.');
         }
     }
 
