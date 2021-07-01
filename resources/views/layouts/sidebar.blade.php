@@ -146,6 +146,9 @@
                         <ul class="nav-submenu menu-content"
                             style="display: {{ Request::is('pengaturan/*') || Request::is('pengaturan') ? 'block;': 'none;' }}">
                             <li>
+                                <a class="submenu-title {{ Route::current()->getname() == 'pengaturan.accountinfo' ? 'active' : '' }}" href="{{ route('pengaturan.accountinfo') }}">Akun Admin</a>
+                            </li>
+                            <li>
                                 <a class="submenu-title {{ Route::current()->getname() == 'pengaturan.tahunajaran' ? 'active' : '' }}" href="{{ route('pengaturan.tahunajaran') }}">Tahun Ajaran</a>
                             </li>
                             <li>
