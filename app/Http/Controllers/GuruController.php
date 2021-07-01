@@ -13,7 +13,7 @@ class GuruController extends Controller
     {
         $this->middleware('ceksesi');
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -58,7 +58,7 @@ class GuruController extends Controller
 
             if ($validator->fails()) {
                 return back()->withErrors($validator)->withInput();
-            }else{
+            } else {
                 $profile_img = $request->file('profile_img');
                 $data_input = [
                     'nama_lengkap_guru' => $request->input('nama_lengkap_guru'),
@@ -127,13 +127,11 @@ class GuruController extends Controller
                 'alamat_guru' => 'required',
                 'no_hp_guru' => 'required',
                 'email_guru' => 'required',
-                'profile_img' => 'required'
             ]);
 
             if ($validator->fails()) {
                 return redirect()->route('guru.index')->withErrors($validator)->withInput();
-            }else{
-                $profile_img = $request->file('profile_img');
+            } else {
                 $data_update = [
                     'nama_lengkap_guru' => $request->input('nama_lengkap_guru'),
                     'nip' => $request->input('nip'),
@@ -145,15 +143,9 @@ class GuruController extends Controller
                     'no_hp_guru' => $request->input('no_hp_guru'),
                     'email' => $request->input('email_guru'),
                     'role' => 'guru',
-                    'profile_img' => $profile_img == null ? 'img_guru.jpg' : $profile_img->getClientOriginalName(),
                 ];
                 Guru::where('id_guru', '=', $id)->update($data_update);
-                if ($profile_img != null) {
-                    $profile_img->move('profile_img/guru', $profile_img->getClientOriginalName());
-                    return redirect()->route('guru.index')->with('success', 'Data berhasil ditambahkan.');
-                }else{
-                    return redirect()->route('guru.index')->with('success', 'Data berhasil ditambahkan.');
-                }
+                return redirect()->route('guru.index')->with('success', 'Data berhasil ditambahkan.');
             }
         } catch (\Throwable $th) {
             return redirect()->route('dashboard.index')->withErrors($th->getMessage());

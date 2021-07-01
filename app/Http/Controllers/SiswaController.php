@@ -191,7 +191,6 @@ class SiswaController extends Controller
             if ($validator->fails()) {
                 return redirect()->route('siswa.create')->withErrors($validator)->withInput();
             }
-            $profile_img = $request->file('profile_img');
             $siswa_update = [
                 'nisn' => $request->input('nisn'),
                 'nis' => $request->input('nis'),
@@ -216,15 +215,9 @@ class SiswaController extends Controller
                 'pekerjaan_wali' => $request->input('pekerjaan_wali'),
                 'kelas_id' => $request->input('kelas_id'),
                 'tahun_angkatan_id' => $request->input('tahun_angkatan_id'),
-                'profile_img' => !$profile_img->getClientOriginalName() ? 'img_siswa.jpg' : $profile_img->getClientOriginalName()
             ];
             Siswa::where('id_siswa', $id)->update($siswa_update);
-            if ($profile_img == null) {
-                return redirect()->route('siswa.index')->with('success', 'Data berhasil diperbarui.');
-            } else {
-                $profile_img->move('profile_img/siswa', $profile_img->getClientOriginalName());
-                return redirect()->route('siswa.index')->with('success', 'Data berhasil diperbarui.');
-            }
+            return redirect()->route('siswa.index')->with('success', 'Data berhasil diperbarui.');
         } catch (\Throwable $th) {
             return redirect()->route('siswa.index')->withErrors($th->getMessage());
         }
