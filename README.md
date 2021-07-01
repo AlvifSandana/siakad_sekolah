@@ -5,7 +5,7 @@ powered by [Laravel](https://laravel.com/)
 Fitur yang sedang dikerjakan untuk aplikasi SiAkad:
 
 #### Authentication
-- [ ] Multi login (admin & guru)
+- [x] Multi login (admin & guru)
 
 #### Siswa
 - [x] Tambah data siswa
