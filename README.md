@@ -55,3 +55,7 @@ Fitur yang sedang dikerjakan untuk aplikasi SiAkad:
 - [x] Penyesuaian template (in progress)
 - [x] Tambah Ubah data sekolah
 - [x] Login form
+- [x] Halaman Ubah data Admin
+- [x] Upload foto 
+- [x] Halaman guru (logged in)
+- [ ] Halaman Wali Kelas (logged in)
