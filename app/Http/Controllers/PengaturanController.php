@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Semester;
 use App\TahunAjaran;
+use App\Guru;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class PengaturanController extends Controller
@@ -131,6 +133,50 @@ class PengaturanController extends Controller
             return view('pengaturan.editsemester', compact('semester'));
         } catch (\Throwable $th) {
             return  redirect()->route('pengaturan.semester')->withErrors($th->getMessage());
+        }
+    }
+
+    /**
+     * Admin Account
+     *
+     */
+    public function accountinfo(){
+        $guru = DB::table('guru')->where('id_guru', '=', session()->get('id_guru'))->get();
+        return view('halaman.admin.account', compact('guru'));
+    }
+
+    public function accountUpdate(Request $request){
+        try {
+            $rules = [
+                'nama_lengkap_guru' => 'required',
+                'nip' => 'required',
+                'kota_lahir_guru' => 'required',
+                'tanggal_lahir_guru' => 'required',
+                'jenis_kelamin_guru' => 'required',
+                'agama' => 'required',
+                'alamat_guru' => 'required',
+                'no_hp_guru' => 'required',
+                'email_guru' => 'required',
+            ];
+            $validator = Validator::make($request->all(), $rules);
+            if ($validator->fails()) {
+                return back()->withErrors($validator)->withInput($request->all());
+            }
+            $data_update = [
+                'nama_lengkap_guru' => $request->input('nama_lengkap_guru'),
+                'nip' => $request->input('nip'),
+                'kota_lahir_guru' => $request->input('kota_lahir_guru'),
+                'tanggal_lahir_guru' => $request->input('tanggal_lahir_guru'),
+                'alamat_guru' => $request->input('alamat_guru'),
+                'jenis_kelamin_guru' => $request->input('jenis_kelamin_guru'),
+                'agama' => $request->input('agama'),
+                'no_hp_guru' => $request->input('no_hp_guru'),
+                'email' => $request->input('email_guru'),
+            ];
+            Guru::where('id_guru', $request->session()->get('id_guru'))->update($data_update);
+            return redirect()->route('pengaturan.accountinfo')->with('success', 'Account berhasil diubah.');
+        } catch (\Throwable $th) {
+            return back()->withErrors($th->getMessage());
         }
     }
 }
