@@ -39,8 +39,8 @@ Route::post('/', 'LoginController@login')->name('login.auth');
 Route::get('/logout', 'LoginController@logout')->name('logout');
 
 // upload profile_img route
-Route::put('siakad/upload/guru', 'UploadfotoController@guru')->name('guru.upload_foto');
-Route::put('siakad/upload/siswa', 'UploadfotoController@siswa')->name('siswa.upload_foto');
+Route::put('siakad/upload/guru/{id}', 'UploadfotoController@guru')->name('guru.upload_foto');
+Route::put('siakad/upload/siswa/{id}', 'UploadfotoController@siswa')->name('siswa.upload_foto');
 
 // guru route
 Route::get('siakad/guru/dashboard', 'guru\GuruController@dashboard')->name('dashboard_guru');
