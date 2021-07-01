@@ -65,6 +65,7 @@ class WaliKelasController extends Controller
                 'guru_id' => $request->input('nama_guru')
             ]);
 
+            DB::table('guru')->where('id_guru' ,'=', $request->input('nama_guru'))->update(['role' => 'walikelas']);
             return redirect()->route('walikelas.index')->with('success', 'Data berhasil ditambahkan.');
         } catch (\Throwable $th) {
             return redirect()->route('walikelas.create')->withErrors($th->getMessage());
@@ -116,9 +117,10 @@ class WaliKelasController extends Controller
             }
 
             WaliKelas::where('id_wali_kelas', '=', $id)->update(['guru_id' => $request->input('nama_guru')]);
+            DB::table('guru')->where('id_guru', '=', $request->input('nama_guru'))->update(['role' => 'walikelas']);
             return redirect()->route('walikelas.index')->with('success', 'Data berhasil diperbarui.');
         } catch (\Throwable $th) {
-            return redirect()->route('walikelas.edit')->withErrors($th->getMessage());
+            return back()->withErrors($th->getMessage());
         }
     }
 
