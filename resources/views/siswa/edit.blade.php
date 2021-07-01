@@ -23,6 +23,29 @@
       <div class="card">
         <div class="card-body">
           @foreach ($data_siswa as $siswa)
+            <form action="{{ route('siswa.upload_foto', $siswa->id_siswa) }}" method="post"
+              enctype="multipart/form-data">
+              @csrf
+              @method('PUT')
+              <div class="row">
+                <div class="col-md-12">
+                  <img src="{{ asset('profile_img/siswa/' . $siswa->profile_img) }}" alt="foto profil"
+                    class="img-thumbnail mb-3" style="max-width: 120px">
+                  <input type="file" name="profile_img" id="" class="form-control col-md-6 mb-3">
+                  <div class="pull-right">
+                    <button type="submit" class="btn btn-warning">Ganti Foto</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
           <form action="{{ route('siswa.update', $siswa->id_siswa) }}" method="post" enctype="multipart/form-data">
             @csrf
             @method('PUT')
@@ -58,7 +81,8 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label class="">Tanggal Lahir</label>
-                  <input type="date" class="form-control" name="tanggal_lahir" id="tanggal_lahir" value="{{ $siswa->tanggal_lahir }}">
+                  <input type="date" class="form-control" name="tanggal_lahir" id="tanggal_lahir"
+                    value="{{ $siswa->tanggal_lahir }}">
                 </div>
               </div>
             </div>
@@ -78,12 +102,12 @@
                   <label class="bmd-label-floating">Agama</label>
                   <select class="form-control" name="agama">
                     <option selected>pilih...</option>
-                    <option value="islam" {{ $siswa->agama_siswa == 'islam' ? 'selected' : ''}}>Islam</option>
-                    <option value="kristen" {{ $siswa->agama_siswa == 'kristen' ? 'selected' : ''}}>Kristen</option>
-                    <option value="katolik" {{ $siswa->agama_siswa == 'katolik' ? 'selected' : ''}}>Katolik</option>
-                    <option value="hindu" {{ $siswa->agama_siswa == 'hindu' ? 'selected' : ''}}>Hindu</option>
-                    <option value="buddha" {{ $siswa->agama_siswa == 'buddha' ? 'selected' : ''}}>Buddha</option>
-                    <option value="konghucu" {{ $siswa->agama_siswa == 'konghucu' ? 'selected' : ''}}>Konghucu</option>
+                    <option value="islam" {{ $siswa->agama_siswa == 'islam' ? 'selected' : '' }}>Islam</option>
+                    <option value="kristen" {{ $siswa->agama_siswa == 'kristen' ? 'selected' : '' }}>Kristen</option>
+                    <option value="katolik" {{ $siswa->agama_siswa == 'katolik' ? 'selected' : '' }}>Katolik</option>
+                    <option value="hindu" {{ $siswa->agama_siswa == 'hindu' ? 'selected' : '' }}>Hindu</option>
+                    <option value="buddha" {{ $siswa->agama_siswa == 'buddha' ? 'selected' : '' }}>Buddha</option>
+                    <option value="konghucu" {{ $siswa->agama_siswa == 'konghucu' ? 'selected' : '' }}>Konghucu</option>
                   </select>
                 </div>
               </div>
@@ -179,7 +203,8 @@
                   <select class="form-control" name="kelas_id">
                     <option selected>pilih...</option>
                     @foreach ($kelas as $k)
-                      <option value="{{ $k->id_kelas }}" {{ $k->id_kelas == $siswa->kelas_id ? 'selected' : '' }}>{{ $k->nama_kelas }}</option>
+                      <option value="{{ $k->id_kelas }}" {{ $k->id_kelas == $siswa->kelas_id ? 'selected' : '' }}>
+                        {{ $k->nama_kelas }}</option>
                     @endforeach
                   </select>
                 </div>
@@ -190,19 +215,13 @@
                   <select class="form-control" name="tahun_angkatan_id">
                     <option selected>pilih...</option>
                     @foreach ($tahun_angkatan as $ta)
-                      <option value="{{ $ta->id_tahun_ajaran }}" {{ $ta->id_tahun_ajaran == $siswa->tahun_angkatan_id ? 'selected' : '' }}>{{ $ta->tahun_angkatan }}</option>
+                      <option value="{{ $ta->id_tahun_ajaran }}"
+                        {{ $ta->id_tahun_ajaran == $siswa->tahun_angkatan_id ? 'selected' : '' }}>
+                        {{ $ta->tahun_angkatan }}</option>
                     @endforeach
                   </select>
                 </div>
               </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <img src="{{ asset('profile_img/siswa/'.$siswa->profile_img) }}" alt="foto siswa" class="img-thumbnail">
-                    <div class="form-group">
-                        <input type="file" name="profile_img">
-                    </div>
-                </div>
             </div>
             <button type="submit" class="btn btn-warning float-right">Perbarui Data</button>
             <div class="clearfix"></div>
