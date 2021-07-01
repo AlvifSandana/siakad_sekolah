@@ -11,6 +11,7 @@
                         <div class="mobile-back text-right"><span>Back</span><i class="fa fa-angle-right pl-2"
                                 aria-hidden="true"></i></div>
                     </li>
+                    @if (Session::get('role') == 'admin')
                     <li class="nav-item">
                         <a class="nav-link menu-title {{ Request::is('dashboard') ? 'active' : '' }}"
                             href="/dashboard"><i data-feather="home"></i><span>Dashboard</span>
@@ -135,6 +136,31 @@
                             </li>
                         </ul>
                     </li>
+                    @endif
+                    @if (Session::get('role') == 'guru')
+                    <li class="nav-item">
+                        <a class="nav-link menu-title {{ Request::is('siakad/guru/dashboard') ? 'active' : '' }}"
+                            href="{{ route('dashboard_guru') }}"><i data-feather="home"></i><span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="nav-link menu-title {{  Request::is('siakad/guru/account/*') || Request::is('siakad/guru/account') ? 'active': '' }}"
+                            href="#"><i data-feather="user"></i><span>Account</span>
+                            <div class="according-menu"><i
+                                    class="fa fa-angle-{{ Request::is('siakad/guru/account/*')? 'down': 'right' }}"></i>
+                            </div>
+                        </a>
+                        <ul class="nav-submenu menu-content"
+                            style="display: {{ Request::is('siakad/guru/account/*') || Request::is('siakad/guru/account') ? 'block;': 'none;' }}">
+                            <li>
+                                <a class="submenu-title {{ Route::current()->getname() == 'account_guru.edit' ? 'active' : '' }}" href="{{ route('account_guru.edit') }}">Edit</a>
+                            </li>
+                            <li>
+                                <a class="submenu-title {{ Route::current()->getname() == 'account_guru' ? 'active' : '' }}" href="{{ route('account_guru') }}">Info</a>
+                            </li>
+                        </ul>
+                    </li>
+                    @endif
                 </ul>
             </div>
             <div class="right-arrow" id="right-arrow"><i data-feather="arrow-right"></i></div>
