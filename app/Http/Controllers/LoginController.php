@@ -32,48 +32,30 @@ class LoginController extends Controller
 
             if ($guru->role == 'guru' && Hash::check($request->input('password'), $guru->password)) {
                 session([
+                    'id_guru' => $guru->id_guru,
                     'nip' => $guru->nip,
                     'nama_lengkap_guru' => $guru->nama_lengkap_guru,
-                    'kota_lahir_guru' => $guru->kota_lahir_guru,
-                    'tanggal_lahir_guru' => $guru->tanggal_lahir_guru,
-                    'alamat_guru' => $guru->alamat_guru,
-                    'jenis_kelamin_guru' => $guru->jenis_kelamin_guru,
-                    'agama' => $guru->agama,
-                    'no_hp_guru' => $guru->no_hp_guru,
                     'email' => $guru->email,
-                    'password' => $guru->password,
                     'role' => $guru->role,
                     'profile_img' => $guru->profile_img,
                 ]);
-                return redirect()->route('dashboard.index');
+                return redirect()->route('dashboard_guru');
             } elseif ($guru->role == 'admin' && Hash::check($request->input('password'), $guru->password)) {
                 session([
+                    'id_guru' => $guru->id_guru,
                     'nip' => $guru->nip,
                     'nama_lengkap_guru' => $guru->nama_lengkap_guru,
-                    'kota_lahir_guru' => $guru->kota_lahir_guru,
-                    'tanggal_lahir_guru' => $guru->tanggal_lahir_guru,
-                    'alamat_guru' => $guru->alamat_guru,
-                    'jenis_kelamin_guru' => $guru->jenis_kelamin_guru,
-                    'agama' => $guru->agama,
-                    'no_hp_guru' => $guru->no_hp_guru,
                     'email' => $guru->email,
-                    'password' => $guru->password,
                     'role' => $guru->role,
                     'profile_img' => $guru->profile_img,
                 ]);
                 return redirect()->route('dashboard.index');
             } elseif ($guru->role == 'walikelas' && Hash::check($request->input('password'), $guru->password)){
                 session([
+                    'id_guru' => $guru->id_guru,
                     'nip' => $guru->nip,
                     'nama_lengkap_guru' => $guru->nama_lengkap_guru,
-                    'kota_lahir_guru' => $guru->kota_lahir_guru,
-                    'tanggal_lahir_guru' => $guru->tanggal_lahir_guru,
-                    'alamat_guru' => $guru->alamat_guru,
-                    'jenis_kelamin_guru' => $guru->jenis_kelamin_guru,
-                    'agama' => $guru->agama,
-                    'no_hp_guru' => $guru->no_hp_guru,
                     'email' => $guru->email,
-                    'password' => $guru->password,
                     'role' => $guru->role,
                     'profile_img' => $guru->profile_img,
                 ]);
