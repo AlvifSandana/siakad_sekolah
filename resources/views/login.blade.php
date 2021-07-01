@@ -7,10 +7,16 @@
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="{{ asset('assets/css/loginstyles.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.css') }}">
+  <link rel="icon" href="{{asset('assets/images/favicon.png')}}" type="image/x-icon">
+  <link rel="shortcut icon" href="{{asset('assets/images/favicon.png')}}" type="image/x-icon">
+  <script src="{{ asset('assets/js/jquery-3.5.1.min.js') }}"></script>
+  <script src="{{ asset('assets/js/bootstrap/bootstrap.js') }}"></script>
 </head>
 <body>
   <section class="ftco-section">
     <div class="container">
+      @include('layouts.flash')
       <div class="row justify-content-center">
         <div class="col-md-6 col-lg-5">
           <div class="login-wrap p-4 p-md-5">

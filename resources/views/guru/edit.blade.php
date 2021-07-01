@@ -18,6 +18,7 @@
 
 @section('content')
     <div class="row">
+        @include('layouts.flash')
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
