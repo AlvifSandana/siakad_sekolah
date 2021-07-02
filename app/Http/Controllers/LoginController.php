@@ -59,7 +59,7 @@ class LoginController extends Controller
                     'role' => $guru->role,
                     'profile_img' => $guru->profile_img,
                 ]);
-                return redirect()->route('dashboard.index');
+                return redirect()->route('dashboard_walikelas');
             } else {
                 return back()->with('error', 'Email atau Password salah.');
             }

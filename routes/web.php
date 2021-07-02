@@ -67,3 +67,4 @@ Route::get('siakad/guru/account', 'guru\GuruController@accountdetail')->name('ac
 Route::get('siakad/guru/account/edit', 'guru\GuruController@accountedit')->name('account_guru.edit');
 Route::put('siakad/guru/account/update', 'guru\GuruController@accountupdate')->name('account_guru.update');
 // wali kelas route
+Route::get('siakad/walikelas/dashboard', 'walikelas\WaliKelasController@index')->name('dashboard_walikelas');
