@@ -76,7 +76,10 @@ class GuruController extends Controller
                 'no_hp_guru' => 'required',
                 'email_guru' => 'required',
             ];
-            $validator = Validator::make($request->all(), $rules);
+            $msg = [
+                'required' => ':attribute tidak boleh kosong!',
+            ];
+            $validator = Validator::make($request->all(), $rules, $msg);
             if ($validator->fails()) {
                 return back()->withErrors($validator)->withInput($request->all());
             }
