@@ -19,9 +19,13 @@ class UploadfotoController extends Controller
             $photo_dir = 'profile_img/guru';
             $profile_img = $request->file('profile_img');
             $rules = [
-                'profile_img' => 'required',
+                'profile_img' => 'mimes:jpeg,jpg,png,gif|required',
             ];
-            $validator = Validator::make($request->all(), $rules);
+            $msg = [
+                'required' => ':attribute tidak boleh kosong!',
+                'mimes' => 'Ekstensi file salah! Hanya jpeg, jpg, png, gif'
+            ];
+            $validator = Validator::make($request->all(), $rules, $msg);
 
             if ($validator->fails()) {
                 return back()->withErrors($validator)->withInput($request->all());
@@ -47,9 +51,13 @@ class UploadfotoController extends Controller
             $photo_dir = 'profile_img/siswa';
             $profile_img = $request->file('profile_img');
             $rules = [
-                'profile_img' => 'required',
+                'profile_img' => 'mimes:jpeg,jpg,png,gif|required',
             ];
-            $validator = Validator::make($request->all(), $rules);
+            $msg = [
+                'required' => ':attribute tidak boleh kosong!',
+                'mimes' => 'Ekstensi file salah! Hanya jpeg, jpg, png, gif'
+            ];
+            $validator = Validator::make($request->all(), $rules, $msg);
 
             if ($validator->fails()) {
                 return back()->withErrors($validator)->withInput($request->all());
