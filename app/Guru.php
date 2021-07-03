@@ -24,4 +24,5 @@ class Guru extends Model
         'rememberToken',
         'profile_img',
     ];
+    protected $hidden = ['password', 'rememberToken'];
 }
