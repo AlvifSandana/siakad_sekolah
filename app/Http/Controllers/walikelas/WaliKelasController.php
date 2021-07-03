@@ -15,6 +15,9 @@ class WaliKelasController extends Controller
         $this->middleware('ceksesi');
     }
 
+    /**
+     * Show dashboard page
+     */
     public function dashboard(Request $request)
     {
         $id_wk = DB::table('wali_kelas')->select('id_wali_kelas')->where('guru_id', '=', $request->session()->get('id_guru'))->first();
@@ -94,6 +97,19 @@ class WaliKelasController extends Controller
             return redirect()->route('account_walikelas')->with('success', 'Account berhasil diubah.');
         } catch (\Throwable $th) {
             return back()->withErrors($th->getMessage());
+        }
+    }
+
+    /**
+     * show Siswa Kelas page
+     */
+    public function siswaPage(Request $request){
+        try {
+            $id_kelas = $request->session()->get('kelas_id');
+            $siswa = DB::table('siswa')->where('kelas_id', '=', $id_kelas)->paginate(10);
+            return view('halaman.walikelas.siswa', compact('siswa'));
+        } catch (\Throwable $th) {
+            return view('halaman.walikelas.siswa')->withErrors($th->getMessage());
         }
     }
 }
