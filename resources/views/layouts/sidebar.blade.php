@@ -181,6 +181,30 @@
                         </ul>
                     </li>
                     @endif
+                    @if (Session::get('role') == 'walikelas')
+                    <li class="nav-item">
+                        <a class="nav-link menu-title {{ Request::is('siakad/walikelas/dashboard') ? 'active' : '' }}"
+                            href="{{ route('dashboard_walikelas') }}"><i data-feather="home"></i><span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="nav-link menu-title {{  Request::is('siakad/walikelas/account/*') || Request::is('siakad/walikelas/account') ? 'active': '' }}"
+                            href="#"><i data-feather="user"></i><span>Account</span>
+                            <div class="according-menu"><i
+                                    class="fa fa-angle-{{ Request::is('siakad/walikelas/account/*')? 'down': 'right' }}"></i>
+                            </div>
+                        </a>
+                        <ul class="nav-submenu menu-content"
+                            style="display: {{ Request::is('siakad/walikelas/account/*') || Request::is('siakad/walikelas/account') ? 'block;': 'none;' }}">
+                            <li>
+                                <a class="submenu-title {{ Route::current()->getname() == 'account_walikelas.edit' ? 'active' : '' }}" href="{{ route('account_walikelas.edit') }}">Edit</a>
+                            <walikelas
+                            <li>
+                                <a class="submenu-title {{ Route::current()->getname() == 'account_walikelas' ? 'active' : '' }}" href="{{ route('account_walikelas') }}">Info</a>
+                            </li>
+                        </ul>
+                    </li>
+                    @endif
                 </ul>
             </div>
             <div class="right-arrow" id="right-arrow"><i data-feather="arrow-right"></i></div>
