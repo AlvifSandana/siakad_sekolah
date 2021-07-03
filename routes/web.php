@@ -74,3 +74,4 @@ Route::get('siakad/walikelas/dashboard', 'walikelas\WaliKelasController@dashboar
 Route::get('siakad/walikelas/account', 'walikelas\WaliKelasController@accountdetail')->name('account_walikelas');
 Route::get('siakad/walikelas/account/edit', 'walikelas\WaliKelasController@accountedit')->name('account_walikelas.edit');
 Route::put('siakad/walikelas/account/update', 'walikelas\WaliKelasController@accountupdate')->name('account_walikelas.update');
+Route::get('siakad/walikelas/datakelas/siswa', 'walikelas\WaliKelasController@siswaPage')->name('walikelas.datakelas.siswa');
