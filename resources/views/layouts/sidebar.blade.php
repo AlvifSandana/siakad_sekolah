@@ -188,6 +188,20 @@
                         </a>
                     </li>
                     <li class="dropdown">
+                        <a class="nav-link menu-title {{  Request::is('siakad/walikelas/datakelas/*') || Request::is('siakad/walikelas/datakelas') ? 'active': '' }}"
+                            href="#"><i data-feather="clipboard"></i><span>Data Kelas</span>
+                            <div class="according-menu"><i
+                                    class="fa fa-angle-{{ Request::is('siakad/walikelas/datakelas/*')? 'down': 'right' }}"></i>
+                            </div>
+                        </a>
+                        <ul class="nav-submenu menu-content"
+                            style="display: {{ Request::is('siakad/walikelas/datakelas/*') || Request::is('siakad/walikelas/datakelas') ? 'block;': 'none;' }}">
+                            <li>
+                                <a class="submenu-title {{ Route::current()->getname() == 'walikelas.datakelas.siswa' ? 'active' : '' }}" href="{{ route('walikelas.datakelas.siswa') }}">Siswa</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
                         <a class="nav-link menu-title {{  Request::is('siakad/walikelas/account/*') || Request::is('siakad/walikelas/account') ? 'active': '' }}"
                             href="#"><i data-feather="user"></i><span>Account</span>
                             <div class="according-menu"><i
@@ -198,7 +212,7 @@
                             style="display: {{ Request::is('siakad/walikelas/account/*') || Request::is('siakad/walikelas/account') ? 'block;': 'none;' }}">
                             <li>
                                 <a class="submenu-title {{ Route::current()->getname() == 'account_walikelas.edit' ? 'active' : '' }}" href="{{ route('account_walikelas.edit') }}">Edit</a>
-                            <walikelas
+                            </li>
                             <li>
                                 <a class="submenu-title {{ Route::current()->getname() == 'account_walikelas' ? 'active' : '' }}" href="{{ route('account_walikelas') }}">Info</a>
                             </li>

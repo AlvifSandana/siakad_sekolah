@@ -21,6 +21,9 @@
         @include('layouts.flash')
         <div class="col-md-12">
             <div class="card">
+                <div class="card-header">
+                    <h5>Foto Profil</h5>
+                </div>
                 <div class="card-body">
                     @foreach ($guru as $data_guru)
                     <form action="{{ route('guru.upload_foto', $data_guru->id_guru) }}" method="post" enctype="multipart/form-data">
@@ -35,6 +38,34 @@
                                 </div>
                             </div>
                         </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Password</h5>
+                </div>
+                <div class="card-body">
+                    <form action="{{ route('changepwd_guru', session()->get('id_guru')) }}" method="post">
+                    @csrf
+                    @method('PUT')
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Masukkan Password Baru</label>
+                                <input type="password" name="password" class="form-control mb-2">
+                                <label>Ulangi Password</label>
+                                <input type="password" name="password_confirmation" class="form-control">
+                            </div>
+                            <div class="float-right">
+                                <button type="submit" class="btn btn-warning">Perbarui Password</button>
+                            </div>
+                        </div>
+                    </div>
                     </form>
                 </div>
             </div>
