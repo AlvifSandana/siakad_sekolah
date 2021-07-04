@@ -92,8 +92,8 @@
                   <label class="bmd-label-floating">Jenis Kelamin</label>
                   <select class="form-control" name="jenis_kelamin">
                     <option selected>pilih...</option>
-                    <option value="l" {{ $siswa->jenis_kelamin == 'l' ? 'selected' : '' }}>Laki-laki</option>
-                    <option value="p" {{ $siswa->jenis_kelamin == 'p' ? 'selected' : '' }}>Perempuan</option>
+                    <option value="laki-laki" {{ $siswa->jenis_kelamin == 'laki-laki' ? 'selected' : '' }}>Laki-laki</option>
+                    <option value="perempuan" {{ $siswa->jenis_kelamin == 'perempuan' ? 'selected' : '' }}>Perempuan</option>
                   </select>
                 </div>
               </div>
