@@ -75,7 +75,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label class="bmd-floating-label">Nama Sekolah</label>
+                            <label class="bmd-floating-label">Email Sekolah</label>
                             <input type="email" name="email" value="{{ $ds->email }}" class="form-control" disabled>
                         </div>
                     </div>
