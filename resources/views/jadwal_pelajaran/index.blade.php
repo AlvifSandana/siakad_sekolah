@@ -22,7 +22,7 @@
             <div class="card">
                 <div class="card-body">
                     <table class="table">
-                        <thead>
+                        <thead class="text-center">
                             <th>Hari</th>
                             <th>Kelas</th>
                             <th>Mapel</th>
@@ -31,7 +31,7 @@
                         </thead>
                         <tbody>
                             @foreach ($jadwal_pelajaran as $jp)
-                            <tr>
+                            <tr class="text-center">
                                 <td>{{ $jp->hari }}</td>
                                 <td>{{ $jp->kelas }}</td>
                                 <td>{{ $jp->mapel }}</td>
