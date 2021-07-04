@@ -149,6 +149,9 @@
                                 <a class="submenu-title {{ Route::current()->getname() == 'pengaturan.accountinfo' ? 'active' : '' }}" href="{{ route('pengaturan.accountinfo') }}">Akun Admin</a>
                             </li>
                             <li>
+                                <a href="{{ route('pengaturan.jampelajaran') }}" class="submenu-title {{ Route::current()->getname() == 'pengaturan.jampelajaran' ? 'active' : ''  }}">Jam Pelajaran</a>
+                            </li>
+                            <li>
                                 <a class="submenu-title {{ Route::current()->getname() == 'pengaturan.tahunajaran' ? 'active' : '' }}" href="{{ route('pengaturan.tahunajaran') }}">Tahun Ajaran</a>
                             </li>
                             <li>
