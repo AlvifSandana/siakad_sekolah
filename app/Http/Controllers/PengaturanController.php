@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Semester;
 use App\TahunAjaran;
 use App\Guru;
+use App\JamMapel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -24,6 +25,9 @@ class PengaturanController extends Controller
         return view('pengaturan.tahunajaran', compact('tahun_ajaran'));
     }
 
+    /**
+     * Add tahun ajaran
+     */
     public function addTahunAjaran(Request $request){
         try {
             $rules = [
@@ -42,6 +46,9 @@ class PengaturanController extends Controller
         }
     }
 
+    /**
+     * Delete tahun ajaran
+     */
     public function deleteTahunAjaran($id){
         try {
             TahunAjaran::where('id_tahun_ajaran', $id)->delete();
@@ -51,6 +58,9 @@ class PengaturanController extends Controller
         }
     }
 
+    /**
+     * Show tahun ajaran edit page
+     */
     public function editTahunAjaran($id){
         try {
             $tahun_ajaran = TahunAjaran::where('id_tahun_ajaran', $id)->get();
@@ -60,6 +70,9 @@ class PengaturanController extends Controller
         }
     }
 
+    /**
+     * Update tahun ajaran
+     */
     public function updateTahunAjaran(Request $request, $id){
         try {
             $rules = [
@@ -84,6 +97,9 @@ class PengaturanController extends Controller
         return view('pengaturan.semester', compact('semester'));
     }
 
+    /**
+     * Add semester
+     */
     public function addSemester(Request $request){
         try {
             $rules = [
@@ -102,6 +118,9 @@ class PengaturanController extends Controller
         }
     }
 
+    /**
+     * Update semester
+     */
     public function updateSemester(Request $request, $id){
         try {
             $rules = [
@@ -118,6 +137,9 @@ class PengaturanController extends Controller
         }
     }
 
+    /**
+     * Delete Semester
+     */
     public function deleteSemester($id){
         try {
             Semester::where('id_semester', $id)->delete();
@@ -127,6 +149,9 @@ class PengaturanController extends Controller
         }
     }
 
+    /**
+     * Show semester edit page
+     */
     public function editSemester($id){
         try {
             $semester = Semester::where('id_semester', $id)->get();
@@ -145,6 +170,9 @@ class PengaturanController extends Controller
         return view('halaman.admin.account', compact('guru'));
     }
 
+    /**
+     * Update Admin Account
+     */
     public function accountUpdate(Request $request){
         try {
             $rules = [
@@ -177,6 +205,90 @@ class PengaturanController extends Controller
             return redirect()->route('pengaturan.accountinfo')->with('success', 'Account berhasil diubah.');
         } catch (\Throwable $th) {
             return back()->withErrors($th->getMessage());
+        }
+    }
+
+    /**
+     * Jam pelajaran
+     */
+    public function jampelajaran(){
+        try {
+            $jam_mapel = JamMapel::all();
+            return view('pengaturan.jampelajaran', compact('jam_mapel'));
+        } catch (\Throwable $th) {
+            return view('pengaturan.jampelajaran')->withErrors($th->getMessage());
+        }
+    }
+
+    /**
+     * create jam pelajaran
+     */
+    public function createJamPelajaran(Request $request){
+        try {
+            $rules = [
+                'jam_mulai' => 'required',
+                'jam_akhir' => 'required',
+            ];
+            $msg = [
+                'required' => ':attribute tidak boleh kosong!',
+            ];
+            $validator = Validator::make($request->all(), $rules, $msg);
+            if ($validator->fails()) {
+                return back()->withErrors($validator)->withInput();
+            }
+            JamMapel::firstOrCreate([
+                'jam_mulai' => $request->input('jam_mulai'),
+                'jam_akhir' => $request->input('jam_akhir'),
+            ]);
+            return redirect()->route('pengaturan.jampelajaran')->with('success', 'Data berhasil ditambahkan.');
+        } catch (\Throwable $th) {
+            return back()->withErrors($th->getMessage());
+        }
+    }
+
+    /**
+     * edit jam pelajaran
+     */
+    public function editJamPelajaran($id){
+        $jam_mapel = JamMapel::where('id_jam_mapel', $id)->get();
+        return view('pengaturan.editjampelajaran', compact('jam_mapel'));
+    }
+
+    /**
+     * update jam pelajaran
+     */
+    public function updateJamPelajaran(Request $request, $id){
+        try {
+            $rules = [
+                'jam_mulai' => 'required',
+                'jam_akhir' => 'required',
+            ];
+            $msg = [
+                'required' => ':attribute tidak boleh kosong!',
+            ];
+            $validator = Validator::make($request->all(), $rules, $msg);
+            if ($validator->fails()) {
+                return back()->withErrors($validator)->withInput();
+            }
+            JamMapel::where('id_jam_mapel', $id)->update([
+                'jam_mulai' => $request->input('jam_mulai'),
+                'jam_akhir' => $request->input('jam_akhir'),
+            ]);
+            return redirect()->route('pengaturan.jampelajaran')->with('success', 'Data berhasil diperbarui.');
+        } catch (\Throwable $th) {
+            return back()->withErrors($th->getMessage());
+        }
+    }
+
+    /**
+     * Delete jam pelajaran
+     */
+    public function deleteJamPelajaran($id){
+        try {
+            JamMapel::where('id_jam_mapel', $id)->delete();
+            return redirect()->route('pengaturan.jampelajaran')->with('success', 'Data berhasil dihapus.');
+        } catch (\Throwable $th) {
+            return redirect()->route('pengaturan.jampelajaran')->withErrors($th->getMessage());
         }
     }
 }
