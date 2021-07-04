@@ -17,7 +17,7 @@ class SiswaSeeder extends Seeder
         $faker = Faker::create('id_ID');
 
         // define gender
-        $jk = $faker->randomElements(['laki-laki', 'perempuan']);
+        $jk = $faker->randomElements(['l', 'p']);
 
         // define agama
         $agama = $faker->randomElements(['islam', 'kristen', 'katolik', 'hindu', 'buddha', 'konghucu']);
