@@ -51,6 +51,12 @@ Route::delete('pengaturan/tahunajaran/{id}', 'PengaturanController@deleteTahunAj
 // Account
 Route::get('pengaturan/account', 'PengaturanController@accountinfo')->name('pengaturan.accountinfo');
 Route::put('pengaturan/account', 'PengaturanController@accountUpdate')->name('pengaturan.accountupdate');
+// Jam Pelajaran
+Route::get('pengaturan/jampelajaran', 'PengaturanController@jampelajaran')->name('pengaturan.jampelajaran');
+Route::post('pengaturan/jampelajaran/create', 'PengaturanController@createJamPelajaran')->name('pengaturan.jampelajaran.create');
+Route::get('pengaturan/jampelajaran/edit/{id}', 'PengaturanController@editJamPelajaran')->name('pengaturan.jampelajaran.edit');
+Route::put('pengaturan/jampelajaran/{id}', 'PengaturanController@updateJamPelajaran')->name('pengaturan.jampelajaran.update');
+Route::delete('pengaturan/jampelajaran/{id}', 'PengaturanController@deleteJamPelajaran')->name('pengaturan.jampelajaran.delete');
 
 // auth route
 Route::get('/', 'LoginController@index')->name('login.index');
