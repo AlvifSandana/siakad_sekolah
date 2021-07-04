@@ -10,4 +10,8 @@ class JamMapel extends Model
     protected $table = 'jam_mapel';
     protected $primaryKey = 'id_jam_mapel';
     public $timestamps = true;
+    protected $fillable = [
+        'jam_mulai',
+        'jam_akhir',
+    ];
 }
