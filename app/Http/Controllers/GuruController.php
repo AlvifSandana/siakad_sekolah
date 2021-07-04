@@ -71,7 +71,7 @@ class GuruController extends Controller
                     'no_hp_guru' => $request->input('no_hp_guru'),
                     'email' => $request->input('email_guru'),
                     'password' => $request->input('password'),
-                    'role' => 'guru',
+                    'role' => $request->input('role'),
                     'profile_img' => !$profile_img->getClientOriginalName() ? 'profile_img.jpg' : $profile_img->getClientOriginalName(),
                 ];
                 Guru::create($data_input);
@@ -142,7 +142,7 @@ class GuruController extends Controller
                     'agama' => $request->input('agama'),
                     'no_hp_guru' => $request->input('no_hp_guru'),
                     'email' => $request->input('email_guru'),
-                    'role' => 'guru',
+                    'role' => $request->input('role'),
                 ];
                 Guru::where('id_guru', '=', $id)->update($data_update);
                 return redirect()->route('guru.index')->with('success', 'Data berhasil ditambahkan.');
