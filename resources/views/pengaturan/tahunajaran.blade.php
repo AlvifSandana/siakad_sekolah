@@ -12,7 +12,8 @@
 @endsection
 
 @section('breadcrumb-items')
-  <li class="breadcrumb-item active">Pengaturan</li>
+  <li class="breadcrumb-item">Pengaturan</li>
+  <li class="breadcrumb-item active">Tahun Ajaran</li>
 @endsection
 
 @section('content')
