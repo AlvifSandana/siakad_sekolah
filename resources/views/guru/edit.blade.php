@@ -43,6 +43,34 @@
     <div class="row">
         <div class="col-md-12">
             <div class="card">
+                <div class="card-header">
+                    <h5>Password</h5>
+                </div>
+                <div class="card-body">
+                    <form action="{{ route('changepwd_guru', $data_guru->id_guru) }}" method="post">
+                    @csrf
+                    @method('PUT')
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Masukkan Password Baru</label>
+                                <input type="password" name="password" class="form-control mb-2">
+                                <label>Ulangi Password</label>
+                                <input type="password" name="password_confirmation" class="form-control">
+                            </div>
+                            <div class="float-right">
+                                <button type="submit" class="btn btn-warning">Perbarui Password</button>
+                            </div>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
                 <div class="card-body">
                     <form action="{{ route('guru.update', $data_guru->id_guru) }}" method="POST" enctype="multipart/form-data">
                         @csrf
@@ -118,6 +146,19 @@
                                   <div class="form-group">
                                       <label class="bmd-label-floating">Email Guru</label>
                                       <input class="form-control" type="email" value="{{ $data_guru->email }}" name="email_guru">
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-12">
+                                  <div class="form-group">
+                                      <label class="bmd-label-floating">Role</label>
+                                      <select class="form-control" name="role">
+                                          <option value="">pilih...</option>
+                                          <option value="admin" {{ $data_guru->role == 'admin' ? 'selected' : '' }}>Admin</option>
+                                          <option value="walikelas" {{ $data_guru->role == 'walikelas' ? 'selected' : '' }}>Wali Kelas</option>
+                                          <option value="guru" {{ $data_guru->role == 'guru' ? 'selected' : '' }}>Guru</option>
+                                      </select>
                                   </div>
                               </div>
                           </div>
