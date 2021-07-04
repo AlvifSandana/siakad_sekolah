@@ -21,7 +21,7 @@ class GuruController extends Controller
      */
     public function index()
     {
-        $data_guru = Guru::paginate(10);
+        $data_guru = Guru::all();
         return view('guru.index', compact('data_guru'));
     }
 

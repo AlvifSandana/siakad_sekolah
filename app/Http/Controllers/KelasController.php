@@ -30,7 +30,7 @@ class KelasController extends Controller
                         ->join('guru', 'wali_kelas.guru_id', '=', 'guru.id_guru')
                         ->select('id_kelas', 'nama_kelas', 'tahun_ajaran.nama_tahun_ajaran as thn_ajaran', 'semester.nama_semester as nm_semester', 'guru.nama_lengkap_guru as nama_wali_kelas')
                         ->orderBy('id_kelas')
-                        ->paginate(10);
+                        ->get();
             return view('kelas.index', compact('data_kelas'))->with('success', 'Data Available');
 
         } catch (\Throwable $th) {

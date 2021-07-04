@@ -25,7 +25,7 @@ class SiswaController extends Controller
                 ->join('tahun_ajaran', 'tahun_ajaran.id_tahun_ajaran', '=', 'siswa.tahun_angkatan_id')
                 ->join('kelas', 'kelas.id_kelas', '=', 'siswa.kelas_id')
                 ->orderBy('id_siswa')
-                ->paginate(5);
+                ->get();
 
             return view('siswa.index', compact('data_siswa'))->with('success', 'Data Available');
         } catch (\Throwable $th) {

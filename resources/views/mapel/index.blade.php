@@ -2,6 +2,7 @@
 @section('title', 'Mata Pelajaran')
 
 @section('css')
+<link rel="stylesheet" href="{{ asset('assets/css/datatables.css')}}">
 @endsection
 
 @section('style')
@@ -22,7 +23,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table">
+                        <table class="table" id="tbl_mapel">
                             <thead class="text-primary text-center">
                                 <th>ID</th>
                                 <th>Mata Pelajaran</th>
@@ -47,10 +48,19 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        {{ $mapel->links() }}
+                        {{-- {{ $mapel->links() }} --}}
                     </div>
                 </div>
             </div>
         </div>
     </div>
 @endsection
+@section('script')
+<script src="{{ asset('assets/js/datatable/datatables/jquery.dataTables.min.js') }}" ></script>
+<script>
+    $(document).ready( function () {
+        $('#tbl_mapel').DataTable();
+    });
+</script>
+@endsection
+

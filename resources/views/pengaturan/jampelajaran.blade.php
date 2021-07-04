@@ -2,6 +2,7 @@
 @section('title', 'Pengaturan')
 
 @section('css')
+<link rel="stylesheet" href="{{ asset('assets/css/datatables.css')}}">
 @endsection
 
 @section('style')
@@ -26,7 +27,7 @@
             </div>
             <div class="card-body">
                 <div class="table">
-                    <table class="table">
+                    <table class="table" id="tbl_jammapel">
                         <thead class="text-center">
                             <th>ID</th>
                             <th>Jam Mulai</th>
@@ -96,4 +97,12 @@
         </div>
     </div>
 </div>
+@endsection
+@section('script')
+<script src="{{ asset('assets/js/datatable/datatables/jquery.dataTables.min.js') }}" ></script>
+<script>
+    $(document).ready( function () {
+        $('#tbl_jammapel').DataTable();
+    });
+</script>
 @endsection

@@ -21,7 +21,7 @@ class MapelController extends Controller
     {
         // show data of mapel
         try {
-            $mapel = Mapel::paginate(10);
+            $mapel = Mapel::all();
             return view('mapel.index', compact('mapel'));
         } catch (\Throwable $th) {
             //throw $th;

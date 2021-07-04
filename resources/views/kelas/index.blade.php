@@ -2,6 +2,7 @@
 @section('title', 'Kelas')
 
 @section('css')
+<link rel="stylesheet" href="{{ asset('assets/css/datatables.css')}}">
 @endsection
 
 @section('style')
@@ -22,7 +23,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table">
+                        <table class="table" id="tbl_kls">
                             <thead class=" text-primary">
                                 <th>ID</th>
                                 <th>Nama Kelas</th>
@@ -56,4 +57,12 @@
             </div>
         </div>
     </div>
+@endsection
+@section('script')
+<script src="{{ asset('assets/js/datatable/datatables/jquery.dataTables.min.js') }}" ></script>
+<script>
+    $(document).ready( function () {
+        $('#tbl_kls').DataTable();
+    });
+</script>
 @endsection

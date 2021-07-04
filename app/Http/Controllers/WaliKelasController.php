@@ -24,7 +24,7 @@ class WaliKelasController extends Controller
             $wali_kelas = DB::table('wali_kelas')->select('id_wali_kelas', 'guru.nama_lengkap_guru as nama_wali_kelas')
                             ->join('guru', 'guru_id', '=', 'guru.id_guru')
                             ->orderBy('id_wali_kelas')
-                            ->paginate(10);
+                            ->get();
             return view('walikelas.index', compact('wali_kelas'));
         } catch (\Throwable $th) {
             return view('walikelas.index')->withErrors($th->getMessage());

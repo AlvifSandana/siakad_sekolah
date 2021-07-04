@@ -2,6 +2,7 @@
 @section('title', 'Jadwal Pelajaran')
 
 @section('css')
+<link rel="stylesheet" href="{{ asset('assets/css/datatables.css')}}">
 @endsection
 
 @section('style')
@@ -21,7 +22,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
-                    <table class="table">
+                    <table class="table" id="tbl_jp">
                         <thead class="text-center">
                             <th>Hari</th>
                             <th>Kelas</th>
@@ -45,4 +46,12 @@
             </div>
         </div>
     </div>
+@endsection
+@section('script')
+<script src="{{ asset('assets/js/datatable/datatables/jquery.dataTables.min.js') }}" ></script>
+<script>
+    $(document).ready( function () {
+        $('#tbl_jp').DataTable();
+    });
+</script>
 @endsection

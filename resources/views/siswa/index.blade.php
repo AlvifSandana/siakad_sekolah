@@ -2,6 +2,7 @@
 @section('title', 'Siswa')
 
 @section('css')
+<link rel="stylesheet" href="{{ asset('assets/css/datatables.css')}}">
 @endsection
 
 @section('style')
@@ -22,8 +23,8 @@
       <div class="card">
         <div class="card-body">
           <div class="table-responsive">
-            <table class="table table-md">
-              <thead class=" text-primary">
+            <table class="table" id="tbl_siswa">
+              <thead class="text-center text-primary">
                 <th>ID</th>
                 <th>NISN</th>
                 <th>NIS</th>
@@ -78,15 +79,15 @@
                     <td class="">
                       <form action="{{ route('siswa.destroy', $siswa->id_siswa) }}" method="post">
                         <a href="{{ route('siswa.show', $siswa->id_siswa) }}" class="btn btn-sm btn-info m-1" data-bs-container="body" data-bs-toggle="tooltip" data-bs-placement="top" title="detail">
-                            <i class="fa fa-info"></i>
+                            Detail
                         </a>
                         <a href="{{ route('siswa.edit', $siswa->id_siswa) }}" class="btn btn-sm btn-warning m-1" data-bs-container="body" data-bs-toggle="tooltip" data-bs-placement="top" title="edit data">
-                            <i class="fa fa-edit"></i>
+                            Edit
                         </a>
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-sm btn-danger m-1" data-bs-container="body" data-bs-toggle="tooltip" data-bs-placement="top" title="hapus">
-                            <i class="fa fa-trash"></i>
+                            Hapus
                         </button>
                       </form>
                     </td>
@@ -95,9 +96,17 @@
               </tbody>
             </table>
           </div>
-          <div class="float-right pt-3">{{ $data_siswa->links() }}</div>
+          {{-- <div class="float-right pt-3">{{ $data_siswa->links() }}</div> --}}
         </div>
       </div>
     </div>
   </div>
+@endsection
+@section('script')
+<script src="{{ asset('assets/js/datatable/datatables/jquery.dataTables.min.js') }}" ></script>
+<script>
+    $(document).ready( function () {
+        $('#tbl_siswa').DataTable();
+    });
+</script>
 @endsection
