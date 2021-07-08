@@ -8,7 +8,7 @@ class Guru extends Model
 {
     protected $table = 'guru';
     protected $primaryKey = 'id_guru';
-    public $timestamps = true;
+    protected $dates = ['tanggal_lahir_guru'];
     protected $fillable = [
         'nama_lengkap_guru',
         'nip',
@@ -25,4 +25,5 @@ class Guru extends Model
         'profile_img',
     ];
     protected $hidden = ['password', 'rememberToken'];
+    public $timestamps = true;
 }

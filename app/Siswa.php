@@ -10,6 +10,7 @@ class Siswa extends Model
     // Model Siswa
     protected $table = 'siswa';
     protected $primaryKey = 'id_siswa';
+    protected $dates = ['tanggal_lahir'];
     public $timestamps = true;
     protected $fillable = [
         'nisn', 'nis', 'nama_lengkap',
