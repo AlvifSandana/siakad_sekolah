@@ -49,7 +49,7 @@
                             <td>{{ $guru->id_guru }}</td>
                             <td>{{ $guru->nip }}</td>
                             <td>{{ $guru->nama_lengkap_guru }}</td>
-                            <td>{{ $guru->kota_lahir_guru }}, {{ $guru->tanggal_lahir_guru }}</td>
+                            <td>{{ $guru->kota_lahir_guru }}, {{ $guru->tanggal_lahir_guru->format('d M Y') }}</td>
                             @if ($guru->jenis_kelamin_guru == 'p')
                             <td class="text-center">Wanita</td>
                             @else

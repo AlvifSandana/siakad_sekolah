@@ -57,7 +57,7 @@
                     <td>{{ $siswa->nisn }}</td>
                     <td>{{ $siswa->nis }}</td>
                     <td>{{ $siswa->nama_lengkap }}</td>
-                    <td>{{ $siswa->tanggal_lahir }}</td>
+                    <td>{{ $siswa->kota_lahir.', '.$siswa->tanggal_lahir->format('d M Y') }}</td>
                     <td>{{ $siswa->jenis_kelamin }}</td>
                     <td>{{ $siswa->agama_siswa }}</td>
                     <td>{{ $siswa->status_dalam_keluarga }}</td>
