@@ -84,7 +84,13 @@ Route::get('siakad/walikelas/datakelas/siswa', 'walikelas\WaliKelasController@si
 
 // SPP route
 Route::get('spp', 'SPPController@index')->name('spp.index');
-Route::get('spp/show/{id}', 'SPPController@show')->name('spp.show');
+Route::get('spp/show', 'SPPController@show')->name('spp.show');
 Route::post('spp/add', 'SPPController@addSPP')->name('spp.create');
-Route::put('spp/update/{id}', 'SPPController@updateSPP')->name('spp.update');
-Route::delete('spp/delete/{id}', 'SPPController@deleteSPP')->name('spp.delete');
+Route::put('spp/update', 'SPPController@updateSPP')->name('spp.update');
+Route::get('spp/delete/{id}', 'SPPController@deleteSPP')->name('spp.delete');
+// Pembayaran SPP route
+Route::get('spp/pembayaran', 'PembayaranController@index')->name('spp.pembayaran.index');
+Route::get('spp/pembayaran/show', 'PembayaranController@show')->name('spp.pembayaran.show');
+Route::post('spp/pembayaran/add', 'PembayaranController@addPembayaran')->name('spp.pembayaran.add');
+Route::put('spp/pembayaran/update', 'PembayaranController@updatePembayaran')->name('spp.pembayaran.update');
+Route::get('spp/pembayaran/delete/{id}', 'PembayaranController@deletePembayaran')->name('spp.pembayaran.delete');

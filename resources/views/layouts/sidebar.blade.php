@@ -53,7 +53,7 @@
                     </li>
                     <li class="dropdown">
                         <a class="nav-link menu-title {{ Request::is('guru/*') || Request::is('guru') ? 'active': '' }}"
-                            href="#"><i data-feather="briefcase"></i><span>Guru</span>
+                            href="#"><i data-feather="users"></i><span>Guru</span>
                             <div class="according-menu"><i
                                     class="fa fa-angle-{{ Request::is('guru/*') ? 'down': 'right' }}"></i>
                             </div>
@@ -70,7 +70,7 @@
                     </li>
                     <li class="dropdown">
                         <a class="nav-link menu-title {{ Request::is('walikelas/*') || Request::is('walikelas') ? 'active': '' }}"
-                            href="#"><i data-feather="briefcase"></i><span>Wali Kelas</span>
+                            href="#"><i data-feather="users"></i><span>Wali Kelas</span>
                             <div class="according-menu"><i
                                     class="fa fa-angle-{{ Request::is('walikelas/*') ? 'down': 'right' }}"></i>
                             </div>
@@ -87,7 +87,7 @@
                     </li>
                     <li class="dropdown">
                         <a class="nav-link menu-title {{ Request::is('kelas/*') || Request::is('kelas') ? 'active': '' }}"
-                            href="#"><i data-feather="file-text"></i><span>Kelas</span>
+                            href="#"><i data-feather="flag"></i><span>Kelas</span>
                             <div class="according-menu"><i
                                     class="fa fa-angle-{{ Request::is('kelas/*') ? 'down': 'right' }}"></i>
                             </div>
@@ -104,7 +104,7 @@
                     </li>
                     <li class="dropdown">
                         <a class="nav-link menu-title {{ Request::is('mapel/*') || Request::is('mapel') ? 'active': '' }}"
-                            href="#"><i data-feather="file-text"></i><span>Mata Pelajaran</span>
+                            href="#"><i data-feather="book"></i><span>Mata Pelajaran</span>
                             <div class="according-menu"><i
                                     class="fa fa-angle-{{ Request::is('mapel/*')? 'down': 'right' }}"></i>
                             </div>
@@ -133,6 +133,23 @@
                             </li>
                             <li>
                                 <a class="submenu-title {{ Route::current()->getname() == 'siswa.index' ? 'active' : '' }}" href="{{ route('siswa.index') }}">Detail</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="nav-link menu-title {{  Request::is('spp/*') || Request::is('spp') ? 'active': '' }}"
+                            href="#"><i data-feather="dollar-sign"></i><span>SPP</span>
+                            <div class="according-menu"><i
+                                    class="fa fa-angle-{{ Request::is('spp/*')? 'down': 'right' }}"></i>
+                            </div>
+                        </a>
+                        <ul class="nav-submenu menu-content"
+                            style="display: {{ Request::is('spp/*') || Request::is('spp') ? 'block;': 'none;' }}">
+                            <li>
+                                <a class="submenu-title {{ Route::current()->getname() == 'spp.index' ? 'active' : '' }}" href="{{ route('spp.index') }}">Data SPP</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('spp.pembayaran.index') }}" class="submenu-title {{ Route::current()->getname() == 'spp.pembayaran.index' ? 'active' : ''  }}">Pembayaran</a>
                             </li>
                         </ul>
                     </li>
