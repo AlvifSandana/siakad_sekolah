@@ -59,3 +59,6 @@ Fitur yang sedang dikerjakan untuk aplikasi SiAkad:
 - [x] Halaman guru (logged in)
 - [x] Halaman Wali Kelas (logged in)
 - [x] Management tabel dengan jQuery dataTable
+- [x] SPP dan pembayaran
+
+#### login roles = ('admin', 'guru', 'walikelas')
