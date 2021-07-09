@@ -81,3 +81,10 @@ Route::get('siakad/walikelas/account', 'walikelas\WaliKelasController@accountdet
 Route::get('siakad/walikelas/account/edit', 'walikelas\WaliKelasController@accountedit')->name('account_walikelas.edit');
 Route::put('siakad/walikelas/account/update', 'walikelas\WaliKelasController@accountupdate')->name('account_walikelas.update');
 Route::get('siakad/walikelas/datakelas/siswa', 'walikelas\WaliKelasController@siswaPage')->name('walikelas.datakelas.siswa');
+
+// SPP route
+Route::get('spp', 'SPPController@index')->name('spp.index');
+Route::get('spp/show/{id}', 'SPPController@show')->name('spp.show');
+Route::post('spp/add', 'SPPController@addSPP')->name('spp.create');
+Route::put('spp/update/{id}', 'SPPController@updateSPP')->name('spp.update');
+Route::delete('spp/delete/{id}', 'SPPController@deleteSPP')->name('spp.delete');

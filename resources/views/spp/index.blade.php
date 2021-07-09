@@ -27,7 +27,7 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table">
+                    <table class="table" id="tbl_spp">
                         <thead>
                             <th>ID</th>
                             <th>Tahun</th>
@@ -35,7 +35,13 @@
                             <th>Action</th>
                         </thead>
                         <tbody>
-
+                            @foreach ($data_spp as $spp)
+                            <tr>
+                                <td>{{ $spp->id_spp}}</td>
+                                <td>{{ $spp->tahun}}</td>
+                                <td>{{ $spp->nominal}}</td>
+                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -50,7 +56,7 @@
                 <h5>Tambah Data SPP</h5>
             </div>
             <div class="card-body">
-                <form action="" method="post">
+                <form action="{{ route('spp.create') }}" method="post">
                     @csrf
                     @method('POST')
                     <div class="row">
@@ -75,4 +81,17 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('script')
+<script src="{{ asset('assets/js/datatable/datatables/jquery.dataTables.min.js') }}" ></script>
+<script>
+    $(document).ready(function() {
+        $('#tbl_spp').DataTable({
+            "language": {
+                "emptyTable": "Data kosong (tidak tersedia)."
+            }
+        });
+    });
+</script>
 @endsection
