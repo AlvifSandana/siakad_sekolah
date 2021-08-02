@@ -34,7 +34,7 @@
                 <input type="password" name="password" class="form-control rounded-left" placeholder="Password" required>
               </div>
               <div class="form-group">
-                <button type="submit" class="btn btn-primary rounded submit p-3 px-5">Masuk</button>
+                <button type="submit" class="btn btn-primary rounded submit p-3 px-5 w-100">Masuk</button>
               </div>
             </form>
           </div>
