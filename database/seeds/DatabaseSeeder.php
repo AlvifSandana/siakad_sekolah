@@ -22,7 +22,8 @@ class DatabaseSeeder extends Seeder
             WaliKelasSeeder::class,
             KelasSeeder::class,
             SiswaSeeder::class,
-            JadwalPelajaranSeeder::class
+            JadwalPelajaranSeeder::class,
+            AdminSeeder::class
         ]);
     }
 }
