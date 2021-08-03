@@ -12,7 +12,7 @@
 @endsection
 
 @section('breadcrumb-items')
-<li class="breadcrumb-item active">Dashboard</li>
+<li class="breadcrumb-item active">Dashboard </li>
 @endsection
 
 @section('content')

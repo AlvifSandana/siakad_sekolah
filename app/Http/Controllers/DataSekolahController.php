@@ -61,7 +61,7 @@ class DataSekolahController extends Controller
         if (count($data_sekolah)) {
             return view('datasekolah.edit', compact('data_sekolah'));
         } else {
-            return view('datasekolah.edit', ['data_sekolah' => null]);
+            return redirect()->route('datasekolah.add');
         }
     }
 
